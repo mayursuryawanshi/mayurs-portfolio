@@ -123,10 +123,44 @@ The build output will be in the `dist/` directory, ready to be deployed to any s
 
 This project can be deployed to various platforms:
 
+- **GitHub Pages**: Automatic deployment via GitHub Actions (recommended)
 - **Vercel**: Connect your GitHub repository and deploy automatically
 - **Netlify**: Drag and drop the `dist` folder or connect via Git
-- **GitHub Pages**: Use GitHub Actions to build and deploy
 - **Any static hosting**: Upload the `dist` folder contents
+
+### Deploy to GitHub Pages
+
+The project includes a GitHub Actions workflow that automatically builds and deploys your site to GitHub Pages when you push to the `main` branch.
+
+**Setup Steps:**
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository on GitHub
+   - Click on **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+   - Save the settings
+
+2. **Push your code to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Add GitHub Pages deployment"
+   git push origin main
+   ```
+
+3. **Monitor the deployment:**
+   - Go to the **Actions** tab in your GitHub repository
+   - You should see a workflow run called "Deploy to GitHub Pages"
+   - Once it completes, your site will be live at:
+     - `https://YOUR_USERNAME.github.io/REPOSITORY_NAME/`
+
+4. **Custom Domain (Optional):**
+   - Add a `CNAME` file in the `public/` folder with your domain name
+   - Configure your DNS settings as per GitHub Pages documentation
+
+The workflow automatically:
+- Builds your project on every push to `main`
+- Deploys to GitHub Pages
+- Handles client-side routing with a 404.html redirect
 
 ### Deploy to Vercel
 
