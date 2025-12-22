@@ -25,21 +25,32 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: "18"
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
       - name: Build
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
         run: |
-          REPO_NAME="${{ github.event.repository.name }}"
           if [[ "$REPO_NAME" == *".github.io" ]]; then
             export VITE_BASE=""
+            echo "Using root base path for $REPO_NAME"
           else
             export VITE_BASE="$REPO_NAME"
+            echo "Using base path: /$REPO_NAME/"
           fi
+          echo "Building with VITE_BASE=$VITE_BASE"
           yarn build
+          echo "Build complete. Verifying paths in index.html..."
+          if grep -q "/$REPO_NAME/assets" dist/index.html 2>/dev/null || [[ "$REPO_NAME" == *".github.io" ]]; then
+            echo "✓ Base path correctly applied"
+          else
+            echo "⚠ Warning: Base path may not be applied correctly"
+            head -30 dist/index.html
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -47,7 +58,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
 
   deploy:
     environment:
@@ -59,4 +70,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
