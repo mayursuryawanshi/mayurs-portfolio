@@ -1,73 +1,161 @@
-# Welcome to your Lovable project
+# Mayur Suryawanshi - Portfolio Website
 
-## Project info
+A modern, neobrutalist-inspired portfolio website built with React, TypeScript, and Tailwind CSS. Features a dark/light theme switcher, smooth animations, and a responsive design.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## ✨ Features
 
-## How can I edit this code?
+- **Neobrutalist Design**: Bold, geometric design with strong borders and shadows
+- **Dark/Light Theme**: Toggle between dark and light modes with persistent theme preference
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Smooth Animations**: Floating shapes and subtle animations throughout
+- **Modern Stack**: Built with the latest React and TypeScript technologies
+- **Component Library**: Uses shadcn/ui components for consistent UI elements
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom neobrutalist design system
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Theme Management**: next-themes
+- **Icons**: Lucide React
+- **Routing**: React Router
+- **Form Handling**: React Hook Form with Zod validation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🚀 Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher recommended)
+- npm, yarn, or pnpm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/YOUR_USERNAME/mayurs-portfolio.git
+cd mayurs-portfolio
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-**Use GitHub Codespaces**
+3. Start the development server:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-## What technologies are used for this project?
+4. Open your browser and navigate to `http://localhost:5173`
 
-This project is built with:
+## 📜 Available Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview the production build
+- `npm run lint` - Run ESLint
 
-## How can I deploy this project?
+## 🎨 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
+mayurs-portfolio/
+├── src/
+│   ├── components/        # React components
+│   │   ├── ui/           # shadcn/ui components
+│   │   ├── AboutSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── Navigation.tsx
+│   │   └── ProjectsSection.tsx
+│   ├── pages/            # Page components
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── App.tsx           # Main app component
+│   ├── main.tsx          # Entry point
+│   └── index.css         # Global styles and theme
+├── public/               # Static assets
+└── dist/                 # Production build output
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🎯 Key Components
 
-Yes, you can!
+- **Navigation**: Fixed sidebar navigation with theme switcher
+- **HeroSection**: Landing section with introduction
+- **AboutSection**: About me section with skills and experience
+- **ProjectsSection**: Showcase of projects
+- **ContactSection**: Contact form
+- **Footer**: Footer with links and information
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌙 Theme System
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The portfolio includes a comprehensive theme system with:
+
+- Light and dark mode support
+- Persistent theme preference (stored in localStorage)
+- Smooth theme transitions
+- Custom neobrutalist color palette for both themes
+
+## 📦 Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The build output will be in the `dist/` directory, ready to be deployed to any static hosting service.
+
+## 🚢 Deployment
+
+This project can be deployed to various platforms:
+
+- **Vercel**: Connect your GitHub repository and deploy automatically
+- **Netlify**: Drag and drop the `dist` folder or connect via Git
+- **GitHub Pages**: Use GitHub Actions to build and deploy
+- **Any static hosting**: Upload the `dist` folder contents
+
+### Deploy to Vercel
+
+```bash
+npm i -g vercel
+vercel
+```
+
+### Deploy to Netlify
+
+```bash
+npm i -g netlify-cli
+netlify deploy --prod --dir=dist
+```
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👤 Author
+
+**Mayur Suryawanshi**
+
+- Portfolio: [Your Portfolio URL]
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from neobrutalism design movement
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Icons from [Lucide](https://lucide.dev/)
