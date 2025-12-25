@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface Shape {
   id: number;
@@ -144,8 +145,13 @@ const FloatingShapes = () => {
     }
   };
 
+  const containerRef = useScrollAnimation({ threshold: 0.05 });
+
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div 
+      ref={containerRef.ref}
+      className={`fixed inset-0 overflow-hidden pointer-events-none z-0 scroll-fade-in ${containerRef.isVisible ? 'visible' : ''}`}
+    >
       {shapes.map(renderShape)}
     </div>
   );

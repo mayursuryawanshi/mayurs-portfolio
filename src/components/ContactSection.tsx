@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn", url: "#", color: "bg-neo-cyan" },
@@ -25,25 +26,38 @@ const ContactSection = () => {
     console.log("Form submitted:", formData);
   };
 
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const formRef = useScrollAnimation({ threshold: 0.2 });
+  const socialRef = useScrollAnimation({ threshold: 0.2 });
+  const decorativeRef = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="contact" className="py-20 px-4 relative">
+    <div id="contact" className="py-20 px-4 relative bg-neo-orange waves-pattern">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef.ref}
+          className={`text-center mb-12 scroll-fade-in-up ${headerRef.isVisible ? 'visible' : ''}`}
+        >
           <Badge variant="outline" className="neo-tag bg-neo-pink mb-4 px-4 py-2">
             <span className="w-3 h-3 rounded-full bg-foreground mr-2" />
             <span className="font-body text-sm tracking-widest uppercase">Get in Touch</span>
           </Badge>
-          <h2 className="font-display text-4xl md:text-5xl mb-4">Let's Work Together</h2>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
+          <div className="font-display text-4xl md:text-5xl mb-4">Let's Work Together</div>
+          <div className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
             Have a project in mind? I'd love to hear about it. 
             Drop me a message and let's create something amazing.
-          </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="neo-card bg-neo-cream p-8">
+          <form 
+            ref={formRef.ref}
+            onSubmit={handleSubmit} 
+            className={`neo-card bg-neo-cream p-8 scroll-fade-in-up ${formRef.isVisible ? 'visible' : ''}`}
+            style={{ transitionDelay: '0.1s' }}
+          >
             <div className="space-y-6">
               <div>
                 <Label className="font-display text-sm block mb-2">Your Name</Label>
@@ -87,9 +101,13 @@ const ContactSection = () => {
           </form>
 
           {/* Social Links */}
-          <div className="space-y-6">
+          <div 
+            ref={socialRef.ref}
+            className={`space-y-6 scroll-fade-in-up ${socialRef.isVisible ? 'visible' : ''}`}
+            style={{ transitionDelay: '0.2s' }}
+          >
             <div className="neo-card bg-neo-mint p-8">
-              <h3 className="font-display text-2xl mb-6">Connect With Me</h3>
+              <div className="font-display text-2xl mb-6">Connect With Me</div>
               <div className="grid grid-cols-2 gap-4">
                 {socials.map((social) => (
                   <a
@@ -113,20 +131,24 @@ const ContactSection = () => {
                 <div className="w-4 h-4 rounded-full bg-neo-mint neo-border animate-pulse-scale" />
                 <span className="font-display text-lg">Currently Available</span>
               </div>
-              <p className="font-body">
+              <div className="font-body">
                 I'm open to freelance projects, full-time opportunities, 
                 and interesting collaborations. Let's talk!
-              </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Decorative */}
-      <div className="absolute top-1/2 right-5 hidden xl:block">
+      <div 
+        ref={decorativeRef.ref}
+        className={`absolute top-1/2 right-5 hidden xl:block scroll-fade-in ${decorativeRef.isVisible ? 'visible' : ''}`}
+        style={{ transitionDelay: '0.4s' }}
+      >
         <div className="w-16 h-16 bg-neo-cyan neo-border rounded-full animate-bounce-subtle" />
       </div>
-    </section>
+    </div>
   );
 };
 

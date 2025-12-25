@@ -1,11 +1,41 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
+const DecorativeShape = ({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  return (
+    <div
+      ref={ref}
+      className={`${className} scroll-fade-in ${isVisible ? "visible" : ""}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const HeroSection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative py-20 px-4">
-      <div className="neo-card bg-neo-cream p-8 md:p-12 max-w-2xl w-full relative z-10">
+    <div className="min-h-screen flex items-center justify-center relative py-20 px-4 bg-neo-mint checkerboard-pattern">
+      <div
+        ref={ref}
+        className={`animate-bounce-subtle neo-card bg-neo-cream p-8 md:p-12 max-w-2xl w-full relative z-10 scroll-fade-in-up ${
+          isVisible ? "visible" : ""
+        }`}
+      >
         {/* Tag */}
         <Badge
           variant="outline"
@@ -16,16 +46,16 @@ const HeroSection = () => {
         </Badge>
 
         {/* Main Heading */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-tight mb-6">
+        <div className="font-display text-4xl md:text-6xl lg:text-7xl leading-tight mb-6">
           I'm <span className="text-primary">Mayur Suryawanshi</span>
-        </h1>
+        </div>
 
         {/* Description */}
-        <p className="font-body text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+        <div className="font-body text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
           A Creative Developer with a passion for building beautiful,
           functional, and user-centered digital experiences. I bring ideas to
           life through code and design.
-        </p>
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -59,19 +89,19 @@ const HeroSection = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-10 md:right-20 hidden lg:block">
-        <div className="w-24 h-24 bg-neo-pink neo-border rounded-lg rotate-12 animate-wiggle dotted-pattern" />
-      </div>
-      <div className="absolute bottom-1/4 left-10 md:left-20 hidden lg:block">
+      <DecorativeShape
+        className="absolute top-1 right-10 md:right-20 hidden lg:block"
+        delay={0.3}
+      >
+        <div className="w-40 h-40 bg-neo-pink neo-border rounded-lg rotate-12 animate-wiggle dotted-pattern" />
+      </DecorativeShape>
+      <DecorativeShape
+        className="absolute bottom-1/4 left-10 md:left-20 hidden lg:block"
+        delay={0.5}
+      >
         <div className="w-20 h-20 bg-neo-cyan neo-border rounded-full animate-bounce-subtle" />
-      </div>
-      <div className="absolute top-1/3 left-1/4 hidden lg:block">
-        <div
-          className="w-16 h-16 bg-neo-orange neo-border animate-float diagonal-lines"
-          style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
-        />
-      </div>
-    </section>
+      </DecorativeShape>
+    </div>
   );
 };
 

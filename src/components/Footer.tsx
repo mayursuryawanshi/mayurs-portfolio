@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-8 px-4 border-t-4 border-foreground">
+    <div className="py-8 px-4 border-t-4 border-foreground">
       <div className="max-w-6xl mx-auto">
         {/* Marquee Banner */}
         <div className="neo-card bg-neo-pink p-4 mb-8 overflow-hidden">
@@ -20,17 +20,17 @@ const Footer = () => {
             YOUR<span className="text-primary">NAME</span>
           </div>
 
-          <p className="font-body flex items-center gap-2">
+          <div className="font-body flex items-center gap-2">
             Made with <Heart className="w-5 h-5 text-primary fill-primary animate-pulse-scale" /> 
             and lots of coffee
-          </p>
+          </div>
 
-          <p className="font-body text-sm text-muted-foreground">
+          <div className="font-body text-sm text-muted-foreground">
             © {new Date().getFullYear()} All rights reserved.
-          </p>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 
