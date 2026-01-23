@@ -1,10 +1,10 @@
-import Navigation from "@/components/Navigation";
-import FloatingShapes from "@/components/FloatingShapes";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import Navigation from "@/features/portfolio/components/Navigation";
+import FloatingShapes from "@/features/portfolio/components/FloatingShapes";
+import HeroSection from "@/features/portfolio/components/HeroSection";
+import AboutSection from "@/features/portfolio/components/AboutSection";
+import ProjectsSection from "@/features/portfolio/components/ProjectsSection";
+import ContactSection from "@/features/portfolio/components/ContactSection";
+import Footer from "@/features/portfolio/components/Footer";
 
 const Index = () => {
   return (

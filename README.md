@@ -21,6 +21,9 @@ A modern, neobrutalist-inspired portfolio website built with React, TypeScript, 
 - **Icons**: Lucide React
 - **Routing**: React Router
 - **Form Handling**: React Hook Form with Zod validation
+- **State Management**: TanStack Query for server state
+- **Error Handling**: React Error Boundaries
+- **Security**: Content Security Policy, Security Headers
 
 ## 🚀 Getting Started
 
@@ -38,7 +41,14 @@ git clone https://github.com/YOUR_USERNAME/mayurs-portfolio.git
 cd mayurs-portfolio
 ```
 
-2. Install dependencies:
+2. Environment setup:
+
+```bash
+cp .env.example .env.local
+# Edit .env.local with your configuration
+```
+
+3. Install dependencies:
 
 ```bash
 npm install
@@ -48,7 +58,7 @@ yarn install
 pnpm install
 ```
 
-3. Start the development server:
+4. Start the development server:
 
 ```bash
 npm run dev
@@ -58,37 +68,65 @@ yarn dev
 pnpm dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
 
 ## 📜 Available Scripts
 
+### Development
 - `npm run dev` - Start the development server
+- `npm run type-check` - Run TypeScript type checking
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+
+### Production
 - `npm run build` - Build for production
 - `npm run build:dev` - Build for development
+- `npm run build:analyze` - Build and analyze bundle size
 - `npm run preview` - Preview the production build
-- `npm run lint` - Run ESLint
+- `npm run preview:dist` - Preview production build on all interfaces
 
-## 🎨 Project Structure
+### Docker
+- `npm run docker:build` - Build Docker image
+- `npm run docker:run` - Run Docker container
+
+### Deployment
+- `npm run deploy:preview` - Deploy to Vercel preview
+- `npm run deploy:production` - Deploy to Vercel production
+
+### Maintenance
+- `npm run clean` - Clean build artifacts
+
+## 🏗️ Project Structure
 
 ```
 mayurs-portfolio/
 ├── src/
-│   ├── components/        # React components
-│   │   ├── ui/           # shadcn/ui components
-│   │   ├── AboutSection.tsx
-│   │   ├── ContactSection.tsx
-│   │   ├── Footer.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── Navigation.tsx
-│   │   └── ProjectsSection.tsx
+│   ├── assets/           # Static assets (images, icons, fonts)
+│   ├── components/
+│   │   └── ui/           # shadcn/ui components
+│   ├── config/           # Application configuration
+│   │   ├── constants.ts  # App constants
+│   │   ├── env.ts        # Environment variables
+│   │   └── security.ts   # Security configuration
+│   ├── features/         # Feature-based architecture
+│   │   └── portfolio/
+│   │       ├── components/ # Portfolio-specific components
+│   │       ├── hooks/     # Portfolio-specific hooks
+│   │       └── types/     # Feature types
 │   ├── pages/            # Page components
-│   ├── hooks/            # Custom React hooks
-│   ├── lib/              # Utility functions
+│   ├── types/            # Global TypeScript types
+│   ├── utils/            # Utility functions
 │   ├── App.tsx           # Main app component
 │   ├── main.tsx          # Entry point
 │   └── index.css         # Global styles and theme
 ├── public/               # Static assets
-└── dist/                 # Production build output
+├── dist/                 # Production build output
+├── Dockerfile            # Docker configuration
+├── docker-compose.yml    # Docker Compose setup
+├── nginx.conf            # Nginx configuration
+├── vercel.json           # Vercel deployment config
+├── netlify.toml          # Netlify deployment config
+└── .env.example          # Environment variables template
 ```
 
 ## 🎯 Key Components
@@ -108,6 +146,29 @@ The portfolio includes a comprehensive theme system with:
 - Persistent theme preference (stored in localStorage)
 - Smooth theme transitions
 - Custom neobrutalist color palette for both themes
+
+## 🛡️ Production Features
+
+### Security
+- **Content Security Policy (CSP)**: Prevents XSS attacks
+- **Security Headers**: X-Frame-Options, X-Content-Type-Options, etc.
+- **Input Validation**: Zod schemas for form validation
+
+### Performance
+- **Code Splitting**: Automatic chunk splitting for better caching
+- **Asset Optimization**: Image optimization and font loading
+- **Bundle Analysis**: Built-in bundle analyzer for monitoring
+
+### Error Handling
+- **Error Boundaries**: React error boundaries for graceful error handling
+- **Development Error Details**: Detailed error information in development
+- **Production Error Logging**: Configurable error reporting
+
+### Developer Experience
+- **TypeScript Strict Mode**: Enhanced type checking
+- **ESLint Configuration**: Code quality enforcement
+- **Environment Variables**: Proper env configuration
+- **Docker Support**: Containerized deployment
 
 ## 📦 Building for Production
 
@@ -176,6 +237,50 @@ npm i -g netlify-cli
 netlify deploy --prod --dir=dist
 ```
 
+### Deploy with Docker
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or build and run manually
+npm run docker:build
+npm run docker:run
+```
+
+### Manual Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. The `dist/` folder contains all static files ready for deployment
+
+3. Deploy the `dist/` folder to any static hosting service:
+   - Netlify (drag & drop)
+   - Vercel (via CLI or Git integration)
+   - GitHub Pages (via GitHub Actions)
+   - AWS S3 + CloudFront
+   - Any web server (Apache, Nginx, etc.)
+
+### Environment Variables
+
+For production deployment, configure these environment variables:
+
+```bash
+# Required
+VITE_BASE_URL=/
+VITE_APP_TITLE="Your Portfolio Title"
+VITE_APP_DESCRIPTION="Your portfolio description"
+VITE_APP_AUTHOR="Your Name"
+
+# Optional
+VITE_GITHUB_URL=https://github.com/yourusername
+VITE_LINKEDIN_URL=https://linkedin.com/in/yourprofile
+VITE_EMAIL=your@email.com
+```
+
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -188,8 +293,36 @@ This project is open source and available under the [MIT License](LICENSE).
 - GitHub: [@yourusername](https://github.com/yourusername)
 - LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
 
+## 📊 Monitoring & Maintenance
+
+### Health Checks
+- Health endpoint available at `/health`
+- Docker health checks configured
+- Build analysis with `npm run build:analyze`
+
+### Performance Monitoring
+- Bundle size monitoring
+- Lighthouse performance scores
+- Core Web Vitals optimization
+
+### Error Tracking
+- React Error Boundaries for client-side errors
+- Console logging in development
+- Configurable error reporting for production
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Run type checking: `npm run type-check`
+4. Run linting: `npm run lint:fix`
+5. Commit changes: `git commit -m 'Add amazing feature'`
+6. Push to branch: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
 ## 🙏 Acknowledgments
 
 - Design inspiration from neobrutalism design movement
 - UI components from [shadcn/ui](https://ui.shadcn.com/)
 - Icons from [Lucide](https://lucide.dev/)
+- Build tooling from [Vite](https://vitejs.dev/)
