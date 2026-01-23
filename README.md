@@ -214,6 +214,7 @@ The workflow automatically:
 - Builds your project on every push to `main`
 - Deploys to GitHub Pages
 - Handles client-side routing with a 404.html redirect
+- Uses caching for faster builds (node_modules, yarn cache, Vite cache)
 
 ### Deploy to Vercel
 
