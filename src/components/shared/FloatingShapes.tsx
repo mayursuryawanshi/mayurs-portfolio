@@ -83,8 +83,8 @@ const FloatingShapes = () => {
             }}
           />
         );
-      case "triangle":
-        const triangleColor = shape.color.includes("pink") ? "hsl(340 82% 65%)" 
+      case "triangle": {
+        const triangleColor = shape.color.includes("pink") ? "hsl(340 82% 65%)"
           : shape.color.includes("cyan") ? "hsl(174 72% 56%)"
           : shape.color.includes("orange") ? "hsl(25 95% 63%)"
           : shape.color.includes("mint") ? "hsl(150 60% 90%)"
@@ -104,6 +104,7 @@ const FloatingShapes = () => {
             }}
           />
         );
+      }
       case "donut":
         return (
           <div

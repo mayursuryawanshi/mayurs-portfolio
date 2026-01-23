@@ -51,21 +51,13 @@ cp .env.example .env.local
 3. Install dependencies:
 
 ```bash
-npm install
-# or
 yarn install
-# or
-pnpm install
 ```
 
 4. Start the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
-# or
-pnpm dev
 ```
 
 5. Open your browser and navigate to `http://localhost:5173`
@@ -73,28 +65,28 @@ pnpm dev
 ## 📜 Available Scripts
 
 ### Development
-- `npm run dev` - Start the development server
-- `npm run type-check` - Run TypeScript type checking
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Run ESLint with auto-fix
+- `yarn dev` - Start the development server
+- `yarn type-check` - Run TypeScript type checking
+- `yarn lint` - Run ESLint
+- `yarn lint:fix` - Run ESLint with auto-fix
 
 ### Production
-- `npm run build` - Build for production
-- `npm run build:dev` - Build for development
-- `npm run build:analyze` - Build and analyze bundle size
-- `npm run preview` - Preview the production build
-- `npm run preview:dist` - Preview production build on all interfaces
+- `yarn build` - Build for production
+- `yarn build:dev` - Build for development
+- `yarn build:analyze` - Build and analyze bundle size
+- `yarn preview` - Preview the production build
+- `yarn preview:dist` - Preview production build on all interfaces
 
 ### Docker
-- `npm run docker:build` - Build Docker image
-- `npm run docker:run` - Run Docker container
+- `yarn docker:build` - Build Docker image
+- `yarn docker:run` - Run Docker container
 
 ### Deployment
-- `npm run deploy:preview` - Deploy to Vercel preview
-- `npm run deploy:production` - Deploy to Vercel production
+- `yarn deploy:preview` - Deploy to Vercel preview
+- `yarn deploy:production` - Deploy to Vercel production
 
 ### Maintenance
-- `npm run clean` - Clean build artifacts
+- `yarn clean` - Clean build artifacts
 
 ## 🏗️ Project Structure
 
@@ -175,7 +167,7 @@ The portfolio includes a comprehensive theme system with:
 To create a production build:
 
 ```bash
-npm run build
+yarn build
 ```
 
 The build output will be in the `dist/` directory, ready to be deployed to any static hosting service.
@@ -244,15 +236,15 @@ netlify deploy --prod --dir=dist
 docker-compose up --build
 
 # Or build and run manually
-npm run docker:build
-npm run docker:run
+yarn docker:build
+yarn docker:run
 ```
 
 ### Manual Deployment
 
 1. Build the project:
 ```bash
-npm run build
+yarn build
 ```
 
 2. The `dist/` folder contains all static files ready for deployment
@@ -298,7 +290,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ### Health Checks
 - Health endpoint available at `/health`
 - Docker health checks configured
-- Build analysis with `npm run build:analyze`
+- Build analysis with `yarn build:analyze`
 
 ### Performance Monitoring
 - Bundle size monitoring
@@ -314,8 +306,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Run type checking: `npm run type-check`
-4. Run linting: `npm run lint:fix`
+3. Run type checking: `yarn type-check`
+4. Run linting: `yarn lint:fix`
 5. Commit changes: `git commit -m 'Add amazing feature'`
 6. Push to branch: `git push origin feature/amazing-feature`
 7. Open a Pull Request
