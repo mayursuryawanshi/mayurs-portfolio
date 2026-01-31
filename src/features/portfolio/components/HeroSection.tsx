@@ -32,7 +32,7 @@ const HeroSection = () => {
     <div className="min-h-screen flex items-center justify-center relative py-20 px-4 bg-neo-mint checkerboard-pattern">
       <div
         ref={ref}
-        className={`animate-bounce-subtle neo-card bg-neo-cream p-8 md:p-12 max-w-2xl w-full relative z-10 scroll-fade-in-up ${
+        className={`animate-bounce-subtle neo-card bg-yellow-400 p-8 md:p-12 max-w-4xl w-full relative z-10 scroll-fade-in-up ${
           isVisible ? "visible" : ""
         }`}
       >

@@ -65,27 +65,22 @@ yarn dev
 ## 📜 Available Scripts
 
 ### Development
+
 - `yarn dev` - Start the development server
 - `yarn type-check` - Run TypeScript type checking
 - `yarn lint` - Run ESLint
 - `yarn lint:fix` - Run ESLint with auto-fix
 
 ### Production
+
 - `yarn build` - Build for production
 - `yarn build:dev` - Build for development
 - `yarn build:analyze` - Build and analyze bundle size
 - `yarn preview` - Preview the production build
 - `yarn preview:dist` - Preview production build on all interfaces
 
-### Docker
-- `yarn docker:build` - Build Docker image
-- `yarn docker:run` - Run Docker container
-
 ### Deployment
-- `yarn deploy:preview` - Deploy to Vercel preview
-- `yarn deploy:production` - Deploy to Vercel production
 
-### Maintenance
 - `yarn clean` - Clean build artifacts
 
 ## 🏗️ Project Structure
@@ -113,11 +108,6 @@ mayurs-portfolio/
 │   └── index.css         # Global styles and theme
 ├── public/               # Static assets
 ├── dist/                 # Production build output
-├── Dockerfile            # Docker configuration
-├── docker-compose.yml    # Docker Compose setup
-├── nginx.conf            # Nginx configuration
-├── vercel.json           # Vercel deployment config
-├── netlify.toml          # Netlify deployment config
 └── .env.example          # Environment variables template
 ```
 
@@ -142,25 +132,28 @@ The portfolio includes a comprehensive theme system with:
 ## 🛡️ Production Features
 
 ### Security
+
 - **Content Security Policy (CSP)**: Prevents XSS attacks
 - **Security Headers**: X-Frame-Options, X-Content-Type-Options, etc.
 - **Input Validation**: Zod schemas for form validation
 
 ### Performance
+
 - **Code Splitting**: Automatic chunk splitting for better caching
 - **Asset Optimization**: Image optimization and font loading
 - **Bundle Analysis**: Built-in bundle analyzer for monitoring
 
 ### Error Handling
+
 - **Error Boundaries**: React error boundaries for graceful error handling
 - **Development Error Details**: Detailed error information in development
 - **Production Error Logging**: Configurable error reporting
 
 ### Developer Experience
+
 - **TypeScript Strict Mode**: Enhanced type checking
 - **ESLint Configuration**: Code quality enforcement
 - **Environment Variables**: Proper env configuration
-- **Docker Support**: Containerized deployment
 
 ## 📦 Building for Production
 
@@ -177,8 +170,6 @@ The build output will be in the `dist/` directory, ready to be deployed to any s
 This project can be deployed to various platforms:
 
 - **GitHub Pages**: Automatic deployment via GitHub Actions (recommended)
-- **Vercel**: Connect your GitHub repository and deploy automatically
-- **Netlify**: Drag and drop the `dist` folder or connect via Git
 - **Any static hosting**: Upload the `dist` folder contents
 
 ### Deploy to GitHub Pages
@@ -187,75 +178,51 @@ The project includes a GitHub Actions workflow that automatically builds and dep
 
 **Setup Steps:**
 
-1. **Enable GitHub Pages in your repository:**
-   - Go to your repository on GitHub
-   - Click on **Settings** → **Pages**
-   - Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
-   - Save the settings
+1.  **Enable GitHub Pages in your repository:**
+    - Go to your repository on GitHub
+    - Click on **Settings** → **Pages**
+    - Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+    - Save the settings
 
-2. **Push your code to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Add GitHub Pages deployment"
-   git push origin main
-   ```
+2.  **Push your code to GitHub:**
 
-3. **Monitor the deployment:**
-   - Go to the **Actions** tab in your GitHub repository
-   - You should see a workflow run called "Deploy to GitHub Pages"
-   - Once it completes, your site will be live at:
-     - `https://YOUR_USERNAME.github.io/REPOSITORY_NAME/`
+    ```bash
+    git add .
+    git commit -m "Add GitHub Pages deployment"
+    git push origin main
+    ```
 
-4. **Custom Domain (Optional):**
-   - Add a `CNAME` file in the `public/` folder with your domain name
-   - Configure your DNS settings as per GitHub Pages documentation
+3.  **Monitor the deployment:**
+    - Go to the **Actions** tab in your GitHub repository
+    - You should see a workflow run called "Deploy to GitHub Pages"
+    - Once it completes, your site will be live at:
+      - `https://YOUR_USERNAME.github.io/REPOSITORY_NAME/`
+
+4.  **Custom Domain (Optional):**
+    - Add a `CNAME` file in the `public/` folder with your domain name
+    - Configure your DNS settings as per GitHub Pages documentation
 
 The workflow automatically:
+
 - Builds your project on every push to `main`
 - Deploys to GitHub Pages
 - Handles client-side routing with a 404.html redirect
 - Uses caching for faster builds (node_modules, yarn cache, Vite cache)
 
-### Deploy to Vercel
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### Deploy to Netlify
-
-```bash
-npm i -g netlify-cli
-netlify deploy --prod --dir=dist
-```
-
-### Deploy with Docker
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or build and run manually
-yarn docker:build
-yarn docker:run
-```
-
 ### Manual Deployment
 
-1. Build the project:
-```bash
-yarn build
-```
+1.  Build the project:
 
-2. The `dist/` folder contains all static files ready for deployment
+    ```bash
+    yarn build
+    ```
 
-3. Deploy the `dist/` folder to any static hosting service:
-   - Netlify (drag & drop)
-   - Vercel (via CLI or Git integration)
-   - GitHub Pages (via GitHub Actions)
-   - AWS S3 + CloudFront
-   - Any web server (Apache, Nginx, etc.)
+2.  The `dist/` folder contains all static files ready for deployment
+
+3.  Deploy the `dist/` folder to any static hosting service:
+    - GitHub Pages (via GitHub Actions)
+    - AWS S3 + CloudFront
+    - Any web server (Apache, Nginx, etc.)
 
 ### Environment Variables
 
@@ -289,16 +256,18 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📊 Monitoring & Maintenance
 
 ### Health Checks
+
 - Health endpoint available at `/health`
-- Docker health checks configured
 - Build analysis with `yarn build:analyze`
 
 ### Performance Monitoring
+
 - Bundle size monitoring
 - Lighthouse performance scores
 - Core Web Vitals optimization
 
 ### Error Tracking
+
 - React Error Boundaries for client-side errors
 - Console logging in development
 - Configurable error reporting for production
