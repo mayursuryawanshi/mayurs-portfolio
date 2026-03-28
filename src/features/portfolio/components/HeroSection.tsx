@@ -1,6 +1,7 @@
 import { ArrowRight, MapPin, Sparkles, Code2, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animation";
+import ScrollShape from "./ScrollShape";
 
 const HeroSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -29,7 +30,7 @@ const HeroSection = () => {
       {/* Main Content */}
       <div
         ref={ref}
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-20 scroll-fade-in-up ${
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-20 relative z-10 scroll-fade-in-up ${
           isVisible ? "visible" : ""
         }`}
       >
@@ -161,19 +162,17 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Floating Shapes */}
-      <div className="absolute top-[15%] right-[6%] hidden lg:block animate-float-1">
-        <div className="w-20 h-20 xl:w-24 xl:h-24 neo-border-thick shape-stripes-teal neo-shadow-md" />
-      </div>
-      <div className="absolute bottom-[20%] left-[5%] hidden lg:block animate-float-2">
-        <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full neo-border-thick shape-checkerboard neo-shadow" />
-      </div>
-      <div className="absolute top-[45%] right-[3%] hidden xl:block animate-float-3">
-        <div className="w-12 h-12 xl:w-16 xl:h-16 neo-border-thick shape-dots neo-shadow" />
-      </div>
-      <div className="absolute bottom-[30%] left-[3%] hidden xl:block animate-float-4">
-        <div className="w-10 h-10 xl:w-14 xl:h-14 rounded-full neo-border-thick shape-rings neo-shadow" />
-      </div>
+      {/* Floating Shapes — scroll animated, random positions each load */}
+      <ScrollShape zone="top" side="right" size="w-20 h-20 xl:w-24 xl:h-24" shape="shape-stripes-teal" animation="scroll-spin-in" postAnimation="post-wiggle" hideBelow="lg" />
+      <ScrollShape zone="bottom" side="left" size="w-16 h-16 xl:w-20 xl:h-20" shape="shape-checkerboard" animation="scroll-scale-up" postAnimation="post-float" rounded hideBelow="lg" delay="0.15s" />
+      <ScrollShape zone="mid" side="right" size="w-14 h-14 xl:w-16 xl:h-16" shape="shape-dots" animation="scroll-bounce-in" postAnimation="post-pulse" delay="0.3s" />
+      <ScrollShape zone="mid" side="left" size="w-14 h-14" shape="shape-rings" animation="scroll-flip-in" rounded delay="0.4s" />
+      <ScrollShape zone="bottom" side="right" size="w-16 h-16" shape="shape-grid" animation="scroll-slide-rotate-right" rotate="rotate-12" delay="0.2s" />
+      <ScrollShape zone="top" side="left" size="w-16 h-16" shape="shape-stripes-pink" animation="scroll-drop-in" postAnimation="post-wiggle" rounded delay="0.5s" hideBelow="lg" />
+      <ScrollShape zone="bottom" side="right" size="w-18 h-18 xl:w-20 xl:h-20" shape="shape-grid" animation="scroll-zoom-rotate" postAnimation="post-float" delay="0.25s" />
+      <ScrollShape zone="mid" side="left" size="w-16 h-16 xl:w-18 xl:h-18" shape="shape-stripes-pink" animation="scroll-slide-rotate-left" postAnimation="post-pulse" delay="0.35s" hideBelow="lg" />
+      <ScrollShape zone="mid" side="right" size="w-16 h-16" shape="shape-rings" animation="scroll-flip-in" postAnimation="post-wiggle" rounded delay="0.45s" />
+      <ScrollShape zone="bottom" side="left" size="w-18 h-18" shape="shape-checkerboard" animation="scroll-bounce-in" delay="0.55s" rotate="rotate-6" />
     </section>
   );
 };

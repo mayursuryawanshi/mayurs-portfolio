@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animation";
+import ScrollShape from "./ScrollShape";
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn", url: "#", color: "bg-neo-cyan" },
@@ -27,7 +28,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-neo-yellow pattern-diagonal-stripe border-t-4 border-foreground">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div
           ref={headerRef.ref}
           className={`mb-14 scroll-fade-in-up ${headerRef.isVisible ? "visible" : ""}`}
@@ -145,12 +146,17 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="absolute top-[12%] right-[5%] hidden xl:block animate-float-2">
-        <div className="w-14 h-14 neo-border-thick shape-stripes-teal neo-shadow" />
-      </div>
-      <div className="absolute bottom-[8%] left-[4%] hidden xl:block animate-float-6">
-        <div className="w-12 h-12 neo-border-thick shape-dots neo-shadow" />
-      </div>
+      {/* Floating Shapes — scroll animated, random positions each load */}
+      <ScrollShape zone="top" side="right" size="w-14 h-14" shape="shape-stripes-teal" animation="scroll-spin-in" postAnimation="post-float" delay="0.1s" />
+      <ScrollShape zone="bottom" side="left" size="w-14 h-14" shape="shape-dots" animation="scroll-bounce-in" postAnimation="post-pulse" delay="0.2s" />
+      <ScrollShape zone="mid" side="left" size="w-14 h-14" shape="shape-checkerboard" animation="scroll-slide-rotate-left" postAnimation="post-wiggle" delay="0.3s" />
+      <ScrollShape zone="mid" side="right" size="w-16 h-16" shape="shape-stripes-pink" animation="scroll-scale-up" rounded delay="0.35s" hideBelow="lg" />
+      <ScrollShape zone="bottom" side="right" size="w-14 h-14" shape="shape-grid" animation="scroll-drop-in" delay="0.4s" />
+      <ScrollShape zone="mid" side="left" size="w-14 h-14" shape="shape-rings" animation="scroll-flip-in" rounded delay="0.5s" hideBelow="lg" />
+      <ScrollShape zone="top" side="left" size="w-18 h-18 xl:w-20 xl:h-20" shape="shape-stripes-pink" animation="scroll-zoom-rotate" postAnimation="post-float" rounded delay="0.15s" hideBelow="lg" />
+      <ScrollShape zone="bottom" side="right" size="w-16 h-16 xl:w-18 xl:h-18" shape="shape-checkerboard" animation="scroll-spin-in" postAnimation="post-wiggle" delay="0.25s" />
+      <ScrollShape zone="mid" side="right" size="w-16 h-16" shape="shape-dots" animation="scroll-bounce-in" postAnimation="post-pulse" delay="0.45s" />
+      <ScrollShape zone="bottom" side="left" size="w-18 h-18" shape="shape-grid" animation="scroll-slide-rotate-left" delay="0.55s" rotate="-rotate-6" />
     </section>
   );
 };

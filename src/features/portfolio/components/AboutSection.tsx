@@ -1,5 +1,6 @@
 import { Code, Palette, Zap, Coffee } from "lucide-react";
 import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animation";
+import ScrollShape from "./ScrollShape";
 
 const skills = [
   { name: "React", color: "bg-neo-cyan" },
@@ -27,7 +28,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-neo-pink-light pattern-diagonal-stripe border-t-4 border-foreground">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div
           ref={headerRef.ref}
@@ -149,13 +150,17 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Floating Shapes */}
-      <div className="absolute top-[10%] right-[4%] hidden xl:block animate-float-3">
-        <div className="w-16 h-16 neo-border-thick shape-dots neo-shadow" />
-      </div>
-      <div className="absolute bottom-[8%] left-[3%] hidden xl:block animate-float-5">
-        <div className="w-14 h-14 neo-border-thick shape-grid neo-shadow rotate-45" />
-      </div>
+      {/* Floating Shapes — scroll animated, random positions each load */}
+      <ScrollShape zone="top" side="right" size="w-16 h-16" shape="shape-dots" animation="scroll-spin-in" postAnimation="post-float" delay="0.1s" />
+      <ScrollShape zone="bottom" side="left" size="w-14 h-14" shape="shape-grid" animation="scroll-slide-rotate-left" rotate="rotate-45" delay="0.2s" />
+      <ScrollShape zone="mid" side="left" size="w-14 h-14" shape="shape-stripes-pink" animation="scroll-scale-up" postAnimation="post-wiggle" rounded delay="0.3s" />
+      <ScrollShape zone="bottom" side="right" size="w-16 h-16" shape="shape-checkerboard" animation="scroll-bounce-in" postAnimation="post-pulse" delay="0.4s" />
+      <ScrollShape zone="mid" side="right" size="w-14 h-14" shape="shape-rings" animation="scroll-drop-in" rounded delay="0.5s" hideBelow="lg" />
+      <ScrollShape zone="mid" side="left" size="w-16 h-16" shape="shape-stripes-teal" animation="scroll-flip-in" delay="0.35s" />
+      <ScrollShape zone="top" side="left" size="w-16 h-16 xl:w-18 xl:h-18" shape="shape-stripes-teal" animation="scroll-zoom-rotate" postAnimation="post-float" delay="0.15s" hideBelow="lg" />
+      <ScrollShape zone="bottom" side="right" size="w-18 h-18 xl:w-20 xl:h-20" shape="shape-grid" animation="scroll-slide-rotate-right" postAnimation="post-wiggle" delay="0.25s" />
+      <ScrollShape zone="mid" side="right" size="w-16 h-16" shape="shape-dots" animation="scroll-drop-in" postAnimation="post-pulse" rounded delay="0.45s" />
+      <ScrollShape zone="bottom" side="left" size="w-18 h-18" shape="shape-checkerboard" animation="scroll-spin-in" delay="0.55s" rotate="-rotate-6" />
     </section>
   );
 };

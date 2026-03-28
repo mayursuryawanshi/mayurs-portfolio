@@ -17,6 +17,9 @@ export default {
         display: ['Archivo Black', 'sans-serif'],
         body: ['Space Grotesk', 'sans-serif'],
       },
+      spacing: {
+        '18': '4.5rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
