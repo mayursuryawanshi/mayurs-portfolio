@@ -74,7 +74,6 @@ export default {
           "orange-deep": "hsl(var(--neo-orange-deep))",
           "orange-bg": "hsl(var(--neo-orange-bg))",
           cream: "hsl(var(--neo-cream))",
-          "cream-light": "hsl(var(--neo-cream-light))",
           purple: "hsl(var(--neo-purple))",
           gold: "hsl(var(--neo-gold))",
         },
@@ -93,30 +92,6 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "50%": { transform: "translateY(-20px) rotate(5deg)" },
-        },
-        "float-reverse": {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "50%": { transform: "translateY(20px) rotate(-5deg)" },
-        },
-        wiggle: {
-          "0%, 100%": { transform: "rotate(-3deg)" },
-          "50%": { transform: "rotate(3deg)" },
-        },
-        "bounce-subtle": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
-        "pulse-scale": {
-          "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.05)" },
-        },
         marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
@@ -125,12 +100,6 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 6s ease-in-out infinite",
-        "float-reverse": "float-reverse 6s ease-in-out infinite",
-        wiggle: "wiggle 2s ease-in-out infinite",
-        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
-        "pulse-scale": "pulse-scale 2s ease-in-out infinite",
         marquee: "marquee 30s linear infinite",
       },
     },

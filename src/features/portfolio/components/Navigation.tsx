@@ -9,12 +9,7 @@ import { useActiveSection } from "@/features/portfolio/hooks/use-active-section"
 const navItems = [
   { icon: Home, label: "Home", href: "#", sectionId: "" },
   { icon: User, label: "About", href: "#about", sectionId: "about" },
-  {
-    icon: Briefcase,
-    label: "Projects",
-    href: "#projects",
-    sectionId: "projects",
-  },
+  { icon: Briefcase, label: "Projects", href: "#projects", sectionId: "projects" },
   { icon: Mail, label: "Contact", href: "#contact", sectionId: "contact" },
 ];
 
@@ -23,130 +18,81 @@ const Navigation = () => {
   const [mounted, setMounted] = useState(false);
   const activeSection = useActiveSection();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  const toggleTheme = () => { setTheme(theme === "dark" ? "light" : "dark"); };
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     if (href === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
     <>
-      {/* Desktop Navigation */}
+      {/* Desktop Nav */}
       <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-        <div className="neo-card-static bg-background p-2 flex flex-col gap-2 rounded-2xl">
+        <div className="neo-card-static bg-neo-cream p-2 flex flex-col gap-2">
           {navItems.map((item) => {
             const isActive = activeSection === item.sectionId;
             return (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="group relative flex items-center"
-              >
+              <a key={item.label} href={item.href} onClick={(e) => handleNavClick(e, item.href)} className="group relative flex items-center">
                 <Button
                   variant="outline"
                   size="icon"
-                  className={`w-11 h-11 rounded-xl neo-border transition-all duration-150 ${
+                  className={`w-11 h-11 neo-border transition-all duration-150 ${
                     isActive
-                      ? "bg-primary shadow-none translate-x-[2px] translate-y-[2px]"
-                      : "bg-background hover:bg-neo-yellow neo-shadow-sm"
+                      ? "bg-primary text-primary-foreground shadow-none translate-x-[3px] translate-y-[3px]"
+                      : "bg-white hover:bg-neo-yellow neo-shadow-sm"
                   }`}
                 >
-                  <item.icon className="w-4.5 h-4.5" />
+                  <item.icon className="w-4 h-4" />
                 </Button>
-                <span className="absolute left-14 px-3 py-1.5 bg-foreground text-background font-body text-xs rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity whitespace-nowrap neo-border">
+                <span className="absolute left-14 px-3 py-1.5 bg-foreground text-background font-body text-xs opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap neo-border">
                   {item.label}
                 </span>
               </a>
             );
           })}
-
-          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="w-11 h-11 rounded-xl neo-border bg-background hover:bg-neo-yellow transition-all duration-150 flex items-center justify-center neo-shadow-sm"
+            className="w-11 h-11 neo-border bg-white hover:bg-neo-yellow transition-all duration-150 flex items-center justify-center neo-shadow-sm"
             aria-label="Toggle theme"
           >
-            {mounted && theme === "dark" ? (
-              <Sun className="w-4.5 h-4.5" />
-            ) : (
-              <Moon className="w-4.5 h-4.5" />
-            )}
+            {mounted && theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Nav */}
       <Sheet>
         <SheetTrigger asChild>
-          <Button
-            variant="default"
-            size="icon"
-            className="fixed top-4 right-4 z-50 lg:hidden neo-button bg-primary p-2.5 h-11 w-11 rounded-xl"
-            aria-label="Toggle menu"
-          >
+          <Button variant="default" size="icon" className="fixed top-4 right-4 z-50 lg:hidden neo-button bg-primary p-2.5 h-11 w-11" aria-label="Toggle menu">
             <Menu className="w-5 h-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent
-          side="right"
-          className="bg-background border-l-4 border-foreground"
-        >
+        <SheetContent side="right" className="bg-background border-l-4 border-foreground">
           <div className="flex flex-col gap-3 mt-8">
             {navItems.map((item) => {
               const isActive = activeSection === item.sectionId;
               return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`neo-card-static p-4 flex items-center gap-4 rounded-xl transition-all ${
-                    isActive ? "bg-neo-yellow" : "bg-background"
-                  }`}
-                >
-                  <div
-                    className={`w-11 h-11 rounded-xl neo-border flex items-center justify-center neo-shadow-sm ${
-                      isActive ? "bg-primary" : "bg-background"
-                    }`}
-                  >
+                <a key={item.label} href={item.href} onClick={(e) => handleNavClick(e, item.href)}
+                  className={`neo-card-static p-4 flex items-center gap-4 transition-all ${isActive ? "bg-neo-yellow" : "bg-white"}`}>
+                  <div className={`w-11 h-11 neo-border flex items-center justify-center neo-shadow-sm ${isActive ? "bg-primary text-primary-foreground" : "bg-white"}`}>
                     <item.icon className="w-5 h-5" />
                   </div>
                   <span className="font-display text-lg">{item.label}</span>
                 </a>
               );
             })}
-            <button
-              onClick={toggleTheme}
-              className="neo-card-static bg-background p-4 flex items-center gap-4 rounded-xl"
-              aria-label="Toggle theme"
-            >
-              <div className="w-11 h-11 rounded-xl bg-neo-yellow neo-border flex items-center justify-center neo-shadow-sm">
-                {mounted && theme === "dark" ? (
-                  <Sun className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
+            <button onClick={toggleTheme} className="neo-card-static bg-white p-4 flex items-center gap-4" aria-label="Toggle theme">
+              <div className="w-11 h-11 bg-neo-yellow neo-border flex items-center justify-center neo-shadow-sm">
+                {mounted && theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </div>
-              <span className="font-display text-lg">
-                {mounted && theme === "dark" ? "Light Mode" : "Dark Mode"}
-              </span>
+              <span className="font-display text-lg">{mounted && theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
             </button>
           </div>
         </SheetContent>

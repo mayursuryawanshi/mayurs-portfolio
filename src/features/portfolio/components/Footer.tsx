@@ -22,29 +22,20 @@ const Footer = () => {
       </div>
 
       {/* Footer Content */}
-      <div className="py-8 sm:py-10 px-4 sm:px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
+      <div className="py-8 sm:py-10 px-4 sm:px-6 bg-background border-t-4 border-foreground">
+        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-5">
-            {/* Brand */}
             <div className="font-display text-xl sm:text-2xl">
               MAYUR<span className="text-primary">.</span>
             </div>
-
-            {/* Made with love */}
             <div className="font-body flex items-center gap-2 text-sm text-muted-foreground">
-              Made with{" "}
-              <Heart className="w-4 h-4 text-primary fill-primary animate-pulse-scale" />{" "}
-              and lots of coffee
+              Made with <Heart className="w-4 h-4 text-neo-pink fill-neo-pink animate-pulse-scale" /> and lots of coffee
             </div>
-
-            {/* Back to top + copyright */}
             <div className="flex items-center gap-3">
-              <span className="font-body text-xs text-muted-foreground">
-                © {new Date().getFullYear()}
-              </span>
+              <span className="font-body text-xs text-muted-foreground">© {new Date().getFullYear()}</span>
               <button
                 onClick={scrollToTop}
-                className="neo-button bg-neo-yellow text-foreground h-9 w-9 p-0 flex items-center justify-center rounded-lg text-sm"
+                className="neo-button bg-neo-yellow text-foreground h-9 w-9 p-0 flex items-center justify-center text-sm"
                 aria-label="Back to top"
               >
                 <ArrowUp className="w-4 h-4" />

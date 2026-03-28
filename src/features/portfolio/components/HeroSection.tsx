@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen relative overflow-hidden bg-background pattern-grid-diagonal"
+      className="min-h-screen relative overflow-hidden bg-neo-mint pattern-grid-diagonal"
     >
       {/* Marquee Ticker Strip */}
       <div className="border-b-4 border-foreground bg-neo-yellow overflow-hidden py-2.5 relative z-20">
@@ -27,124 +27,152 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex items-center justify-center min-h-[calc(100vh-44px)] px-4 sm:px-6 py-12 md:py-16">
-        <div
-          ref={ref}
-          className={`max-w-md sm:max-w-3xl w-full scroll-fade-in-up ${
-            isVisible ? "visible" : ""
-          }`}
-        >
-          {/* Hero Card */}
-          <div className="neo-card-lg bg-background p-5 sm:p-8 md:p-10 relative">
-            {/* Animated gradient overlay */}
-            <div
-              className="absolute inset-0 rounded-[1.5rem] opacity-40 pointer-events-none"
-              style={{
-                background: "linear-gradient(135deg, rgba(94,220,212,0.3) 0%, rgba(252,238,75,0.2) 40%, transparent 70%)",
-              }}
-            />
+      <div
+        ref={ref}
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-20 scroll-fade-in-up ${
+          isVisible ? "visible" : ""
+        }`}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
+          {/* Left Column */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Status Badge */}
+            <div className="inline-flex items-center neo-tag bg-neo-orange px-4 py-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-white ring-2 ring-foreground mr-2.5" />
+              <span className="font-display text-xs tracking-[0.15em] uppercase">
+                Available for Work
+              </span>
+            </div>
 
-            <div className="relative z-10 space-y-5 sm:space-y-7">
-              {/* Badge */}
-              <div className="inline-flex items-center neo-tag bg-neo-orange rotate-1 px-4 py-2">
-                <span className="w-2 h-2 rounded-full bg-white ring-2 ring-foreground mr-2.5" />
-                <span className="font-display text-xs tracking-[0.15em] uppercase">
-                  Available for Work
-                </span>
-              </div>
-
-              {/* Main Heading */}
-              <div>
-                <h1 className="font-display text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-                  Hi, I'm{" "}
-                  <span className="text-primary">Mayur</span>
-                  <br />
-                  <span className="text-secondary">Suryawanshi</span>
-                  <span className="text-accent">.</span>
+            {/* Main Heading */}
+            <div className="space-y-2">
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
+                I'm
+              </h1>
+              <div className="relative inline-block">
+                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight text-primary">
+                  Mayur
                 </h1>
+                <div className="absolute -bottom-2 left-0 w-full h-3 bg-neo-yellow neo-border" />
               </div>
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
+                Suryawanshi<span className="text-accent">.</span>
+              </h1>
+            </div>
 
-              {/* Description */}
-              <p className="font-body text-sm sm:text-base md:text-lg leading-[1.7] max-w-xl text-muted-foreground">
-                A Creative Developer with a passion for building beautiful,
-                functional, and user-centered digital experiences. I bring
-                ideas to life through code and design.
+            {/* Description Card */}
+            <div className="neo-card bg-neo-cream p-5 max-w-lg">
+              <p className="font-body text-lg md:text-xl leading-relaxed">
+                A Creative Developer with a passion for building{" "}
+                <span className="bg-neo-yellow px-1 font-semibold neo-border inline-block">
+                  beautiful
+                </span>
+                , functional, and user-centered digital experiences.
               </p>
+            </div>
 
-              {/* Skill Icons Row */}
-              <div className="flex items-center gap-2.5">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Button
+                asChild
+                className="neo-button bg-primary text-primary-foreground font-body h-auto py-3.5 px-7 text-base group"
+              >
+                <a href="#projects" className="flex items-center gap-2">
+                  View My Work
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="secondary"
+                className="neo-button bg-neo-yellow text-foreground font-body h-auto py-3.5 px-7 text-base"
+              >
+                <a href="#contact" className="flex items-center gap-2">
+                  Get in Touch
+                </a>
+              </Button>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-10 h-10 bg-neo-cyan neo-border flex items-center justify-center neo-shadow-sm">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <span className="font-body text-base text-muted-foreground">
+                Based in Maharashtra, India
+              </span>
+            </div>
+          </div>
+
+          {/* Right Column — Stacked Cards */}
+          <div className="lg:col-span-5 relative mt-8 lg:mt-12">
+            {/* Background rotated card */}
+            <div className="absolute inset-0 neo-card bg-neo-pink rotate-2 translate-x-2 translate-y-2 hidden sm:block" />
+
+            {/* Main card */}
+            <div className="neo-card-lg bg-neo-yellow p-6 md:p-8 relative z-10">
+              {/* Icon row */}
+              <div className="flex items-center gap-3 mb-6">
                 {[
-                  { icon: Code2, color: "bg-neo-cyan", label: "Code" },
-                  { icon: Palette, color: "bg-neo-pink", label: "Design" },
-                  { icon: Sparkles, color: "bg-neo-yellow", label: "Create" },
-                ].map(({ icon: Icon, color, label }) => (
-                  <div
-                    key={label}
-                    className={`w-11 h-11 sm:w-12 sm:h-12 neo-border rounded-xl ${color} flex items-center justify-center neo-shadow-sm hover:neo-shadow-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all`}
-                    title={label}
-                  >
-                    <Icon className="w-5 h-5" />
+                  { icon: Code2, color: "bg-white" },
+                  { icon: Palette, color: "bg-neo-cyan" },
+                  { icon: Sparkles, color: "bg-neo-pink" },
+                ].map(({ icon: Icon, color }, i) => (
+                  <div key={i} className={`w-12 h-12 neo-border ${color} flex items-center justify-center neo-shadow-sm`}>
+                    <Icon className="w-6 h-6" />
                   </div>
                 ))}
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                <Button
-                  asChild
-                  className="neo-button bg-primary text-foreground font-body h-auto py-3 px-7 text-sm sm:text-base group"
-                >
-                  <a href="#projects" className="flex items-center gap-2">
-                    View My Work
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="secondary"
-                  className="neo-button bg-neo-yellow text-foreground font-body h-auto py-3 px-7 text-sm sm:text-base"
-                >
-                  <a href="#contact" className="flex items-center gap-2">
-                    Get in Touch
-                  </a>
-                </Button>
+              {/* Skills grid */}
+              <h3 className="font-display text-lg mb-3">What I Do</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Frontend", color: "bg-neo-cyan" },
+                  { label: "UI/UX", color: "bg-neo-pink" },
+                  { label: "React", color: "bg-white" },
+                  { label: "TypeScript", color: "bg-neo-purple" },
+                ].map(({ label, color }) => (
+                  <div
+                    key={label}
+                    className={`neo-border px-4 py-3 font-body font-semibold text-sm text-center neo-shadow-sm ${color}`}
+                  >
+                    {label}
+                  </div>
+                ))}
               </div>
 
-              {/* Location */}
-              <div className="flex items-center gap-2.5 pt-1">
-                <div className="w-8 h-8 rounded-lg bg-neo-cyan neo-border flex items-center justify-center neo-shadow-sm">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="font-body text-sm text-muted-foreground">
-                  Based in Maharashtra, India
-                </span>
+              {/* Stats */}
+              <div className="flex gap-4 mt-6 pt-4 border-t-3 border-foreground">
+                {[
+                  { val: "2+", label: "Years Exp" },
+                  { val: "10+", label: "Projects" },
+                  { val: "5+", label: "Tech Stack" },
+                ].map((s, i) => (
+                  <div key={s.label} className="text-center flex-1 flex flex-col items-center">
+                    <div className="font-display text-2xl">{s.val}</div>
+                    <div className="font-body text-xs uppercase tracking-wider">{s.label}</div>
+                    {i < 2 && <div className="hidden" />}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Decorative Shapes — pattern-filled, slow ambient animation */}
-      <div className="absolute top-[15%] right-[8%] hidden lg:block animate-float-1">
-        <div className="w-20 h-20 xl:w-28 xl:h-28 rounded-[2rem] neo-border-thick shape-stripes-pink neo-shadow-md" />
+      {/* Floating Shapes */}
+      <div className="absolute top-[15%] right-[6%] hidden lg:block animate-float-1">
+        <div className="w-20 h-20 xl:w-24 xl:h-24 neo-border-thick shape-stripes-teal neo-shadow-md" />
       </div>
-      <div className="absolute bottom-[20%] left-[6%] hidden lg:block animate-float-2">
-        <div className="w-16 h-16 xl:w-24 xl:h-24 rounded-full neo-border-thick shape-checkerboard neo-shadow-md" />
+      <div className="absolute bottom-[20%] left-[5%] hidden lg:block animate-float-2">
+        <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full neo-border-thick shape-checkerboard neo-shadow" />
       </div>
-      <div className="absolute top-[40%] right-[4%] hidden xl:block animate-float-3">
-        <div className="w-14 h-14 xl:w-20 xl:h-20 rounded-2xl neo-border-thick shape-dots neo-shadow" />
+      <div className="absolute top-[45%] right-[3%] hidden xl:block animate-float-3">
+        <div className="w-12 h-12 xl:w-16 xl:h-16 neo-border-thick shape-dots neo-shadow" />
       </div>
-      <div className="absolute bottom-[35%] left-[3%] hidden xl:block animate-float-4">
-        <div className="w-12 h-12 xl:w-16 xl:h-16 rounded-full neo-border-thick shape-rings neo-shadow" />
-      </div>
-      <div className="absolute top-[25%] left-[12%] hidden lg:block animate-float-5">
-        <div
-          className="w-14 h-14 xl:w-18 xl:h-18 neo-border-thick shape-stripes-teal neo-shadow"
-          style={{ clipPath: "polygon(50% 0%, 100% 90%, 0% 90%)" }}
-        />
-      </div>
-      <div className="absolute bottom-[15%] right-[12%] hidden lg:block animate-float-6">
-        <div className="w-12 h-12 xl:w-16 xl:h-16 rounded-xl neo-border-thick shape-grid neo-shadow rotate-12" />
+      <div className="absolute bottom-[30%] left-[3%] hidden xl:block animate-float-4">
+        <div className="w-10 h-10 xl:w-14 xl:h-14 rounded-full neo-border-thick shape-rings neo-shadow" />
       </div>
     </section>
   );
