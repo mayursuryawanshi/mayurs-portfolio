@@ -33,9 +33,9 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Desktop Nav */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-        <div className="neo-card-static bg-neo-cream p-2 flex flex-col gap-2">
+      {/* Desktop Nav — horizontal top center */}
+      <div className="fixed top-14 left-1/2 -translate-x-1/2 z-50 hidden lg:block">
+        <div className="neo-card-static bg-neo-cream p-2 flex flex-row items-center gap-2">
           {navItems.map((item) => {
             const isActive = activeSection === item.sectionId;
             return (
@@ -51,7 +51,7 @@ const Navigation = () => {
                 >
                   <item.icon className="w-4 h-4" />
                 </Button>
-                <span className="absolute left-14 px-3 py-1.5 bg-foreground text-background font-body text-xs opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap neo-border">
+                <span className="absolute top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-foreground text-background font-body text-xs opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap neo-border">
                   {item.label}
                 </span>
               </a>

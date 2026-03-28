@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin, Sparkles, Code2, Palette } from "lucide-react";
+import { ArrowRight, Sparkles, Code2, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animation";
 import ScrollShape from "./ScrollShape";
@@ -15,7 +15,10 @@ const HeroSection = () => {
       <div className="border-b-4 border-foreground bg-neo-yellow overflow-hidden py-2.5 relative z-20">
         <div className="animate-marquee whitespace-nowrap flex gap-8 items-center">
           {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="flex items-center gap-3 font-display text-xs tracking-[0.2em] uppercase">
+            <span
+              key={i}
+              className="flex items-center gap-3 font-display text-xs tracking-[0.2em] uppercase"
+            >
               <Sparkles className="w-3.5 h-3.5" />
               Creative Developer
               <span className="w-1.5 h-1.5 bg-foreground rounded-full" />
@@ -93,16 +96,6 @@ const HeroSection = () => {
                 </a>
               </Button>
             </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-3 pt-2">
-              <div className="w-10 h-10 bg-neo-cyan neo-border flex items-center justify-center neo-shadow-sm">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <span className="font-body text-base text-muted-foreground">
-                Based in Maharashtra, India
-              </span>
-            </div>
           </div>
 
           {/* Right Column — Stacked Cards */}
@@ -119,7 +112,10 @@ const HeroSection = () => {
                   { icon: Palette, color: "bg-neo-cyan" },
                   { icon: Sparkles, color: "bg-neo-pink" },
                 ].map(({ icon: Icon, color }, i) => (
-                  <div key={i} className={`w-12 h-12 neo-border ${color} flex items-center justify-center neo-shadow-sm`}>
+                  <div
+                    key={i}
+                    className={`w-12 h-12 neo-border ${color} flex items-center justify-center neo-shadow-sm`}
+                  >
                     <Icon className="w-6 h-6" />
                   </div>
                 ))}
@@ -150,9 +146,14 @@ const HeroSection = () => {
                   { val: "10+", label: "Projects" },
                   { val: "5+", label: "Tech Stack" },
                 ].map((s, i) => (
-                  <div key={s.label} className="text-center flex-1 flex flex-col items-center">
+                  <div
+                    key={s.label}
+                    className="text-center flex-1 flex flex-col items-center"
+                  >
                     <div className="font-display text-2xl">{s.val}</div>
-                    <div className="font-body text-xs uppercase tracking-wider">{s.label}</div>
+                    <div className="font-body text-xs uppercase tracking-wider">
+                      {s.label}
+                    </div>
                     {i < 2 && <div className="hidden" />}
                   </div>
                 ))}
@@ -163,16 +164,102 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Shapes — scroll animated, random positions each load */}
-      <ScrollShape zone="top" side="right" size="w-20 h-20 xl:w-24 xl:h-24" shape="shape-stripes-teal" animation="scroll-spin-in" postAnimation="post-wiggle" hideBelow="lg" />
-      <ScrollShape zone="bottom" side="left" size="w-16 h-16 xl:w-20 xl:h-20" shape="shape-checkerboard" animation="scroll-scale-up" postAnimation="post-float" rounded hideBelow="lg" delay="0.15s" />
-      <ScrollShape zone="mid" side="right" size="w-14 h-14 xl:w-16 xl:h-16" shape="shape-dots" animation="scroll-bounce-in" postAnimation="post-pulse" delay="0.3s" />
-      <ScrollShape zone="mid" side="left" size="w-14 h-14" shape="shape-rings" animation="scroll-flip-in" rounded delay="0.4s" />
-      <ScrollShape zone="bottom" side="right" size="w-16 h-16" shape="shape-grid" animation="scroll-slide-rotate-right" rotate="rotate-12" delay="0.2s" />
-      <ScrollShape zone="top" side="left" size="w-16 h-16" shape="shape-stripes-pink" animation="scroll-drop-in" postAnimation="post-wiggle" rounded delay="0.5s" hideBelow="lg" />
-      <ScrollShape zone="bottom" side="right" size="w-18 h-18 xl:w-20 xl:h-20" shape="shape-grid" animation="scroll-zoom-rotate" postAnimation="post-float" delay="0.25s" />
-      <ScrollShape zone="mid" side="left" size="w-16 h-16 xl:w-18 xl:h-18" shape="shape-stripes-pink" animation="scroll-slide-rotate-left" postAnimation="post-pulse" delay="0.35s" hideBelow="lg" />
-      <ScrollShape zone="mid" side="right" size="w-16 h-16" shape="shape-rings" animation="scroll-flip-in" postAnimation="post-wiggle" rounded delay="0.45s" />
-      <ScrollShape zone="bottom" side="left" size="w-18 h-18" shape="shape-checkerboard" animation="scroll-bounce-in" delay="0.55s" rotate="rotate-6" />
+      <ScrollShape
+        zone="top"
+        side="right"
+        size="w-20 h-20 xl:w-24 xl:h-24"
+        shape="shape-stripes-teal"
+        animation="scroll-spin-in"
+        postAnimation="post-wiggle"
+        hideBelow="lg"
+      />
+      <ScrollShape
+        zone="bottom"
+        side="left"
+        size="w-16 h-16 xl:w-20 xl:h-20"
+        shape="shape-checkerboard"
+        animation="scroll-scale-up"
+        postAnimation="post-float"
+        rounded
+        hideBelow="lg"
+        delay="0.15s"
+      />
+      <ScrollShape
+        zone="mid"
+        side="right"
+        size="w-14 h-14 xl:w-16 xl:h-16"
+        shape="shape-dots"
+        animation="scroll-bounce-in"
+        postAnimation="post-pulse"
+        delay="0.3s"
+      />
+      <ScrollShape
+        zone="mid"
+        side="left"
+        size="w-14 h-14"
+        shape="shape-rings"
+        animation="scroll-flip-in"
+        rounded
+        delay="0.4s"
+      />
+      <ScrollShape
+        zone="bottom"
+        side="right"
+        size="w-16 h-16"
+        shape="shape-grid"
+        animation="scroll-slide-rotate-right"
+        rotate="rotate-12"
+        delay="0.2s"
+      />
+      <ScrollShape
+        zone="top"
+        side="left"
+        size="w-16 h-16"
+        shape="shape-stripes-pink"
+        animation="scroll-drop-in"
+        postAnimation="post-wiggle"
+        rounded
+        delay="0.5s"
+        hideBelow="lg"
+      />
+      <ScrollShape
+        zone="bottom"
+        side="right"
+        size="w-18 h-18 xl:w-20 xl:h-20"
+        shape="shape-grid"
+        animation="scroll-zoom-rotate"
+        postAnimation="post-float"
+        delay="0.25s"
+      />
+      <ScrollShape
+        zone="mid"
+        side="left"
+        size="w-16 h-16 xl:w-18 xl:h-18"
+        shape="shape-stripes-pink"
+        animation="scroll-slide-rotate-left"
+        postAnimation="post-pulse"
+        delay="0.35s"
+        hideBelow="lg"
+      />
+      <ScrollShape
+        zone="mid"
+        side="right"
+        size="w-16 h-16"
+        shape="shape-rings"
+        animation="scroll-flip-in"
+        postAnimation="post-wiggle"
+        rounded
+        delay="0.45s"
+      />
+      <ScrollShape
+        zone="bottom"
+        side="left"
+        size="w-18 h-18"
+        shape="shape-checkerboard"
+        animation="scroll-bounce-in"
+        delay="0.55s"
+        rotate="rotate-6"
+      />
     </section>
   );
 };
