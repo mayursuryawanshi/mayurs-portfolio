@@ -1,36 +1,59 @@
-import { Heart } from "lucide-react";
+import { Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="py-8 px-4 border-t-4 border-foreground">
-      <div className="max-w-6xl mx-auto">
-        {/* Marquee Banner */}
-        <div className="neo-card bg-neo-pink p-4 mb-8 overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <span key={i} className="font-display text-xl mx-8">
-                ★ OPEN FOR OPPORTUNITIES ★ LET'S CREATE SOMETHING AWESOME ★ NEOBRUTALISM ROCKS
-              </span>
-            ))}
-          </div>
+    <footer className="relative">
+      {/* Marquee Banner */}
+      <div className="border-y-4 border-foreground bg-neo-pink overflow-hidden py-2.5">
+        <div className="animate-marquee whitespace-nowrap flex gap-8 items-center">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <span key={i} className="flex items-center gap-3 font-display text-xs tracking-[0.2em] uppercase">
+              <span className="w-1.5 h-1.5 bg-foreground rounded-full" />
+              Open for Opportunities
+              <span className="w-1.5 h-1.5 bg-foreground rounded-full" />
+              Let's Create Something Awesome
+            </span>
+          ))}
         </div>
+      </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="font-display text-2xl">
-            YOUR<span className="text-primary">NAME</span>
-          </div>
+      {/* Footer Content */}
+      <div className="py-8 sm:py-10 px-4 sm:px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-5">
+            {/* Brand */}
+            <div className="font-display text-xl sm:text-2xl">
+              MAYUR<span className="text-primary">.</span>
+            </div>
 
-          <div className="font-body flex items-center gap-2">
-            Made with <Heart className="w-5 h-5 text-primary fill-primary animate-pulse-scale" />
-            and lots of coffee
-          </div>
+            {/* Made with love */}
+            <div className="font-body flex items-center gap-2 text-sm text-muted-foreground">
+              Made with{" "}
+              <Heart className="w-4 h-4 text-primary fill-primary animate-pulse-scale" />{" "}
+              and lots of coffee
+            </div>
 
-          <div className="font-body text-sm text-muted-foreground">
-            © {new Date().getFullYear()} All rights reserved.
+            {/* Back to top + copyright */}
+            <div className="flex items-center gap-3">
+              <span className="font-body text-xs text-muted-foreground">
+                © {new Date().getFullYear()}
+              </span>
+              <button
+                onClick={scrollToTop}
+                className="neo-button bg-neo-yellow text-foreground h-9 w-9 p-0 flex items-center justify-center rounded-lg text-sm"
+                aria-label="Back to top"
+              >
+                <ArrowUp className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

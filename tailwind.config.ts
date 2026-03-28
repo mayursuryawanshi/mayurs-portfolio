@@ -64,11 +64,16 @@ export default {
         neo: {
           yellow: "hsl(var(--neo-yellow))",
           pink: "hsl(var(--neo-pink))",
+          "pink-light": "hsl(var(--neo-pink-light))",
           cyan: "hsl(var(--neo-cyan))",
+          "cyan-light": "hsl(var(--neo-cyan-light))",
           mint: "hsl(var(--neo-mint))",
           orange: "hsl(var(--neo-orange))",
+          "orange-deep": "hsl(var(--neo-orange-deep))",
           cream: "hsl(var(--neo-cream))",
+          "cream-light": "hsl(var(--neo-cream-light))",
           purple: "hsl(var(--neo-purple))",
+          gold: "hsl(var(--neo-gold))",
         },
       },
       borderRadius: {
@@ -111,7 +116,7 @@ export default {
         },
         marquee: {
           "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
@@ -123,7 +128,7 @@ export default {
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
         "spin-slow": "spin-slow 20s linear infinite",
         "pulse-scale": "pulse-scale 2s ease-in-out infinite",
-        marquee: "marquee 20s linear infinite",
+        marquee: "marquee 30s linear infinite",
       },
     },
   },

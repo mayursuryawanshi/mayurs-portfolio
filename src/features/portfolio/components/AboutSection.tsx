@@ -4,146 +4,156 @@ import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animat
 const skills = [
   { name: "React", color: "bg-neo-cyan" },
   { name: "TypeScript", color: "bg-neo-pink" },
-  { name: "Node.js", color: "bg-neo-mint" },
+  { name: "Node.js", color: "bg-neo-yellow" },
   { name: "Tailwind CSS", color: "bg-neo-orange" },
-  { name: "Next.js", color: "bg-neo-purple" },
+  { name: "Next.js", color: "bg-neo-purple text-white" },
   { name: "Figma", color: "bg-neo-pink" },
-  { name: "MongoDB", color: "bg-neo-mint" },
-  { name: "PostgreSQL", color: "bg-neo-cyan" },
+  { name: "MongoDB", color: "bg-neo-cyan" },
+  { name: "PostgreSQL", color: "bg-neo-yellow" },
 ];
 
 const traits = [
-  { icon: Code, label: "Clean Code", desc: "Writing maintainable solutions" },
-  { icon: Palette, label: "Design Eye", desc: "Attention to visual details" },
-  { icon: Zap, label: "Fast Learner", desc: "Adapting to new technologies" },
-  { icon: Coffee, label: "Dedicated", desc: "Committed to excellence" },
+  { icon: Code, label: "Clean Code", color: "bg-neo-cyan" },
+  { icon: Palette, label: "Design Eye", color: "bg-neo-pink" },
+  { icon: Zap, label: "Fast Learner", color: "bg-neo-yellow" },
+  { icon: Coffee, label: "Dedicated", color: "bg-neo-orange" },
 ];
 
 const AboutSection = () => {
   const headerRef = useScrollAnimation({ threshold: 0.2 });
-  const leftRef = useScrollAnimation({ threshold: 0.2 });
-  const rightRef = useScrollAnimation({ threshold: 0.2 });
-  const decorativeRef = useScrollAnimation({ threshold: 0.1 });
+  const cardRef = useScrollAnimation({ threshold: 0.15 });
+  const skillsRef = useScrollAnimation({ threshold: 0.2 });
+  const statsRef = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div id="about" className="py-20 px-4 relative bg-neo-pink stripes-pattern">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+    <section id="about" className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-background pattern-plaid">
+      <div className="relative z-10 mx-auto max-w-6xl">
+        {/* Section Badge */}
         <div
           ref={headerRef.ref}
-          className={`inline-flex items-center gap-2 neo-tag bg-neo-orange mb-8 scroll-fade-in-up ${
-            headerRef.isVisible ? "visible" : ""
-          }`}
+          className={`mb-10 sm:mb-14 scroll-fade-in-up ${headerRef.isVisible ? "visible" : ""}`}
         >
-          <span className="w-3 h-3 rounded-full bg-foreground" />
-          <span className="font-body text-sm tracking-widest uppercase">
-            About Me
-          </span>
+          <div className="inline-flex items-center neo-tag bg-neo-orange -rotate-1 px-4 py-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-white ring-2 ring-foreground mr-2.5" />
+            <span className="font-display text-xs tracking-[0.15em] uppercase">About Me</span>
+          </div>
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-[1.05]">
+            Developer &{" "}
+            <span className="text-secondary">Designer</span>
+            <span className="text-accent">.</span>
+          </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Left Column - About Text */}
-          <div
-            ref={leftRef.ref}
-            className={`neo-card bg-neo-cream p-8 scroll-fade-in-up ${
-              leftRef.isVisible ? "visible" : ""
-            }`}
-            style={{ transitionDelay: "0.1s" }}
-          >
-            <div className="font-display text-3xl md:text-4xl mb-6">
-              Developer & Designer
-            </div>
-            <div className="font-body text-lg leading-relaxed mb-6">
-              I enjoy taking ideas from concept to execution and shaping
-              experiences that genuinely help users. I prioritize
-              maintainability because when the foundation is clean, the product
-              becomes easier to improve.
-            </div>
-            <div className="font-body text-lg leading-relaxed">
-              My goal is always to build systems that feel thoughtful and
-              intentional, combining technical excellence with creative
-              problem-solving.
-            </div>
+        {/* Main Info Card — teal tinted, like inspiration */}
+        <div
+          ref={cardRef.ref}
+          className={`scroll-fade-in-up ${cardRef.isVisible ? "visible" : ""}`}
+          style={{ transitionDelay: "0.1s" }}
+        >
+          <div className="neo-card-lg bg-secondary p-6 sm:p-8 md:p-10 rotate-[0.5deg] relative">
+            {/* Subtle overlay */}
+            <div className="absolute inset-0 rounded-[1.5rem] bg-white/15 pointer-events-none" />
+            {/* Dot texture */}
+            <div className="absolute inset-0 rounded-[1.5rem] pattern-dots-subtle pointer-events-none" />
 
-            {/* Traits Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              {traits.map((trait) => (
-                <div
-                  key={trait.label}
-                  className="flex items-start gap-3 p-4 bg-background rounded-lg neo-border"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-secondary neo-border flex items-center justify-center flex-shrink-0">
-                    <trait.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-display text-sm">{trait.label}</div>
-                    <div className="font-body text-xs text-muted-foreground">
-                      {trait.desc}
+            <div className="relative z-10 grid md:grid-cols-2 gap-6 md:gap-10">
+              {/* Bio */}
+              <div className="space-y-4">
+                <p className="font-body text-sm sm:text-base md:text-lg leading-[1.7] font-medium">
+                  I enjoy taking ideas from concept to execution and shaping
+                  experiences that genuinely help users. I prioritize
+                  maintainability because when the foundation is clean,
+                  the product becomes easier to improve.
+                </p>
+                <p className="font-body text-sm sm:text-base md:text-lg leading-[1.7] font-medium">
+                  My goal is always to build systems that feel thoughtful
+                  and intentional — combining technical excellence with
+                  creative problem-solving.
+                </p>
+              </div>
+
+              {/* Traits Grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {traits.map((trait) => (
+                  <div
+                    key={trait.label}
+                    className={`neo-card-static ${trait.color} p-4 rounded-xl text-center`}
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/90 neo-border flex items-center justify-center mx-auto mb-2 neo-shadow-sm">
+                      <trait.icon className="w-5 h-5" />
                     </div>
+                    <div className="font-display text-xs sm:text-sm">{trait.label}</div>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row — Skills + Stats side by side */}
+        <div className="grid sm:grid-cols-2 gap-6 mt-8">
+          {/* Tech Stack */}
+          <div
+            ref={skillsRef.ref}
+            className={`neo-card bg-background p-5 sm:p-6 -rotate-[0.5deg] scroll-fade-in-up ${
+              skillsRef.isVisible ? "visible" : ""
+            }`}
+            style={{ transitionDelay: "0.2s" }}
+          >
+            <h3 className="font-display text-base sm:text-lg mb-4">Tech Stack</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              {skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className={`neo-border rounded-xl p-2.5 text-center neo-shadow-sm hover:neo-shadow-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all ${skill.color}`}
+                >
+                  <span className="font-display text-[0.65rem] sm:text-xs uppercase tracking-wide">
+                    {skill.name}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Column - Skills */}
+          {/* Stats */}
           <div
-            ref={rightRef.ref}
-            className={`neo-card bg-neo-mint p-8 scroll-fade-in-up ${
-              rightRef.isVisible ? "visible" : ""
+            ref={statsRef.ref}
+            className={`neo-card bg-neo-gold p-5 sm:p-6 rotate-[0.5deg] scroll-fade-in-up ${
+              statsRef.isVisible ? "visible" : ""
             }`}
-            style={{ transitionDelay: "0.2s" }}
+            style={{ transitionDelay: "0.3s" }}
           >
-            <div className="font-display text-2xl mb-6">Tech Stack</div>
-
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill, index) => (
-                <span
-                  key={skill.name}
-                  className={`neo-tag ${skill.color} font-body animate-float`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
+            <h3 className="font-display text-base sm:text-lg mb-4">Quick Stats</h3>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { value: "3+", label: "Years Exp" },
+                { value: "20+", label: "Projects" },
+                { value: "15+", label: "Clients" },
+                { value: "∞", label: "Coffee" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="neo-border rounded-xl p-3 sm:p-4 text-center bg-white/50 neo-shadow-sm"
                 >
-                  {skill.name}
-                </span>
+                  <div className="font-display text-xl sm:text-2xl">{stat.value}</div>
+                  <div className="font-display text-[0.6rem] sm:text-xs uppercase tracking-wider mt-0.5">
+                    {stat.label}
+                  </div>
+                </div>
               ))}
-            </div>
-
-            {/* Experience Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="bg-background rounded-lg neo-border p-6 text-center">
-                <span className="font-display text-4xl text-primary">3+</span>
-                <div className="font-body text-sm mt-2">Years Experience</div>
-              </div>
-              <div className="bg-background rounded-lg neo-border p-6 text-center">
-                <span className="font-display text-4xl text-secondary">
-                  20+
-                </span>
-                <div className="font-body text-sm mt-2">Projects Completed</div>
-              </div>
-              <div className="bg-background rounded-lg neo-border p-6 text-center">
-                <span className="font-display text-4xl text-accent">15+</span>
-                <div className="font-body text-sm mt-2">Happy Clients</div>
-              </div>
-              <div className="bg-background rounded-lg neo-border p-6 text-center">
-                <span className="font-display text-4xl text-neo-purple">∞</span>
-                <div className="font-body text-sm mt-2">Cups of Coffee</div>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Decorative */}
-      <div
-        ref={decorativeRef.ref}
-        className={`absolute top-10 right-10 hidden xl:block scroll-fade-in ${
-          decorativeRef.isVisible ? "visible" : ""
-        }`}
-        style={{ transitionDelay: "0.4s" }}
-      >
-        <div className="w-32 h-32 rounded-full bg-neo-pink neo-border animate-spin-slow opacity-50" />
+      {/* Floating Shapes */}
+      <div className="absolute top-[10%] right-[5%] hidden lg:block animate-float-3">
+        <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full neo-border-thick shape-dots neo-shadow" />
       </div>
-    </div>
+      <div className="absolute bottom-[12%] left-[4%] hidden lg:block animate-float-5">
+        <div className="w-14 h-14 xl:w-18 xl:h-18 rounded-2xl neo-border-thick shape-grid neo-shadow rotate-6" />
+      </div>
+    </section>
   );
 };
 
