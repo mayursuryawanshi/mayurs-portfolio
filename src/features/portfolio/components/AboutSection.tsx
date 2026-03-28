@@ -26,7 +26,7 @@ const AboutSection = () => {
   const statsRef = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section id="about" className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-background pattern-plaid">
+    <section id="about" className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-neo-yellow-light pattern-plaid">
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Section Badge */}
         <div

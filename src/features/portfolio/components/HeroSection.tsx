@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div
               className="absolute inset-0 rounded-[1.5rem] opacity-40 pointer-events-none"
               style={{
-                background: "linear-gradient(135deg, rgba(255,182,193,0.35) 0%, transparent 60%)",
+                background: "linear-gradient(135deg, rgba(94,220,212,0.3) 0%, rgba(252,238,75,0.2) 40%, transparent 70%)",
               }}
             />
 

@@ -30,20 +30,20 @@ const ContactSection = () => {
   const socialRef = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section id="contact" className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-background pattern-pink-stripe">
+    <section id="contact" className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-neo-orange-bg pattern-pink-stripe">
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Section Header */}
         <div
           ref={headerRef.ref}
           className={`mb-10 sm:mb-14 scroll-fade-in-up ${headerRef.isVisible ? "visible" : ""}`}
         >
-          <div className="inline-flex items-center neo-tag bg-neo-pink -rotate-1 px-4 py-2 mb-6">
+          <div className="inline-flex items-center neo-tag bg-neo-orange -rotate-1 px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-white ring-2 ring-foreground mr-2.5" />
             <span className="font-display text-xs tracking-[0.15em] uppercase">Connect</span>
           </div>
           <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-[1.05] mb-3">
             Let's Work{" "}
-            <span className="text-primary">Together</span>
+            <span className="text-secondary">Together</span>
             <span className="text-accent">.</span>
           </h2>
           <p className="font-body text-sm sm:text-base md:text-lg leading-[1.7] max-w-lg text-muted-foreground">

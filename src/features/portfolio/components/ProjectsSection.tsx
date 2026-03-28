@@ -136,7 +136,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-background pattern-teal-check"
+      className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative overflow-hidden bg-neo-cyan-bg pattern-teal-check"
     >
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Section Header */}
@@ -155,7 +155,7 @@ const ProjectsSection = () => {
             </div>
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-[1.05]">
               Featured{" "}
-              <span className="text-primary">Projects</span>
+              <span className="text-secondary">Projects</span>
               <span className="text-accent">.</span>
             </h2>
           </div>

@@ -49,13 +49,16 @@
     --neo-cream: 40 100% 94%;
     --neo-cream-light: 40 100% 97%;
     --neo-yellow: 50 97% 64%; /* #FCEE4B */
-    --neo-pink: 340 100% 65%; /* #FF6F91 */
-    --neo-pink-light: 340 100% 80%; /* #FFB6C1 */
+    --neo-yellow-light: 48 100% 91%; /* #FEF3C7 */
+    --neo-pink: 340 100% 72%; /* softer pink */
+    --neo-pink-light: 340 100% 83%;
     --neo-cyan: 174 58% 49%; /* #2EC4B6 */
     --neo-cyan-light: 174 66% 60%; /* #5EDCD4 */
+    --neo-cyan-bg: 174 40% 92%; /* very light teal bg */
     --neo-mint: 160 60% 70%;
     --neo-orange: 25 100% 63%; /* #FFA366 */
     --neo-orange-deep: 25 100% 56%; /* #FF8C42 */
+    --neo-orange-bg: 30 100% 90%; /* warm orange bg */
     --neo-purple: 270 80% 55%;
     --neo-gold: 45 100% 62%; /* #FFD93D */
 
@@ -283,15 +286,15 @@
     background-image:
       repeating-linear-gradient(
         90deg,
-        rgba(251, 191, 36, 0.15) 0px,
-        rgba(251, 191, 36, 0.15) 40px,
+        rgba(251, 191, 36, 0.2) 0px,
+        rgba(251, 191, 36, 0.2) 40px,
         transparent 40px,
         transparent 80px
       ),
       repeating-linear-gradient(
         0deg,
-        rgba(251, 146, 60, 0.12) 0px,
-        rgba(251, 146, 60, 0.12) 40px,
+        rgba(251, 146, 60, 0.15) 0px,
+        rgba(251, 146, 60, 0.15) 40px,
         transparent 40px,
         transparent 80px
       );
@@ -302,10 +305,10 @@
     background-image:
       repeating-conic-gradient(
         from 0deg at 50% 50%,
-        rgba(46, 196, 182, 0.08) 0deg 90deg,
-        rgba(94, 220, 212, 0.06) 90deg 180deg,
-        rgba(46, 196, 182, 0.08) 180deg 270deg,
-        rgba(94, 220, 212, 0.06) 270deg 360deg
+        rgba(46, 196, 182, 0.12) 0deg 90deg,
+        rgba(94, 220, 212, 0.08) 90deg 180deg,
+        rgba(46, 196, 182, 0.12) 180deg 270deg,
+        rgba(94, 220, 212, 0.08) 270deg 360deg
       );
     background-size: 60px 60px;
   }
@@ -314,15 +317,15 @@
     background-image:
       repeating-linear-gradient(
         45deg,
-        rgba(255, 111, 145, 0.06) 0px,
-        rgba(255, 111, 145, 0.06) 40px,
+        rgba(255, 140, 66, 0.08) 0px,
+        rgba(255, 140, 66, 0.08) 40px,
         transparent 40px,
         transparent 42px
       ),
       repeating-linear-gradient(
         -45deg,
-        rgba(0, 0, 0, 0.03) 0px,
-        rgba(0, 0, 0, 0.03) 40px,
+        rgba(0, 0, 0, 0.04) 0px,
+        rgba(0, 0, 0, 0.04) 40px,
         transparent 40px,
         transparent 42px
       );
