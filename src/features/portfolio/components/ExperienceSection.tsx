@@ -77,7 +77,12 @@ const experiences = [
 
 const ExperienceSection = () => {
   const headerRef = useScrollAnimation({ threshold: 0.2 });
-  const cardRefs = experiences.map(() => useScrollAnimation({ threshold: 0.15 }));
+  const cardRef0 = useScrollAnimation({ threshold: 0.15 });
+  const cardRef1 = useScrollAnimation({ threshold: 0.15 });
+  const cardRef2 = useScrollAnimation({ threshold: 0.15 });
+  const cardRef3 = useScrollAnimation({ threshold: 0.15 });
+  const cardRef4 = useScrollAnimation({ threshold: 0.15 });
+  const cardRefs = [cardRef0, cardRef1, cardRef2, cardRef3, cardRef4];
 
   return (
     <section
