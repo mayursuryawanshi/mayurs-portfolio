@@ -77,6 +77,7 @@ const experiences = [
 
 const ExperienceSection = () => {
   const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const cardRefs = experiences.map(() => useScrollAnimation({ threshold: 0.15 }));
 
   return (
     <section
@@ -111,7 +112,9 @@ const ExperienceSection = () => {
 
           <div className="space-y-8">
             {experiences.map((exp, index) => {
-              const cardRef = useScrollAnimation({ threshold: 0.15 });
+              const cardRef = cardRefs[index];
+              if (!cardRef) return null;
+              
               return (
                 <div
                   key={`${exp.company}-${exp.title}`}
