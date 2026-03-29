@@ -133,7 +133,7 @@ const ProjectsSection = () => {
             </h2>
           </div>
           <Button asChild className="neo-button bg-neo-yellow text-foreground font-body h-auto py-3 px-6 self-start group">
-            <a href="#" className="flex items-center gap-2">
+            <a href="https://github.com/mayursuryawanshi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               View All <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>

@@ -8,10 +8,10 @@ import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animat
 import ScrollShape from "./ScrollShape";
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", url: "#", color: "bg-neo-cyan" },
-  { icon: Github, label: "GitHub", url: "#", color: "bg-neo-yellow" },
-  { icon: Twitter, label: "Twitter", url: "#", color: "bg-neo-mint" },
-  { icon: Mail, label: "Email", url: "mailto:your@email.com", color: "bg-neo-orange" },
+  { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com/in/mayur-suryawanshi-346b96258", color: "bg-neo-cyan" },
+  { icon: Github, label: "GitHub", url: "https://github.com/mayursuryawanshi", color: "bg-neo-yellow" },
+  { icon: Twitter, label: "Twitter", url: "https://x.com/mayursurya34181", color: "bg-neo-mint" },
+  { icon: Mail, label: "Email", url: "mailto:suryamayur34@gmail.com", color: "bg-neo-orange" },
 ];
 
 const ContactSection = () => {
