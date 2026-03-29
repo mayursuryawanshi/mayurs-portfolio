@@ -20,11 +20,11 @@ const HeroSection = () => {
               className="flex items-center gap-3 font-display text-xs tracking-[0.2em] uppercase"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              Creative Developer
+              Full-Stack Developer
               <span className="w-1.5 h-1.5 bg-foreground rounded-full" />
-              UI/UX Enthusiast
+              Healthcare Tech
               <span className="w-1.5 h-1.5 bg-foreground rounded-full" />
-              Open to Work
+              AI Enthusiast
             </span>
           ))}
         </div>
@@ -42,9 +42,9 @@ const HeroSection = () => {
           <div className="lg:col-span-7 space-y-6">
             {/* Status Badge */}
             <div className="inline-flex items-center neo-tag bg-neo-orange px-4 py-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-white ring-2 ring-foreground mr-2.5" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-400 ring-2 ring-foreground mr-2.5 animate-pulse-scale" />
               <span className="font-display text-xs tracking-[0.15em] uppercase">
-                Available for Work
+                SDE-I at House Works Inc
               </span>
             </div>
 
@@ -67,11 +67,11 @@ const HeroSection = () => {
             {/* Description Card */}
             <div className="neo-card bg-neo-cream p-5 max-w-lg">
               <p className="font-body text-lg md:text-xl leading-relaxed">
-                A Creative Developer with a passion for building{" "}
+                A Full-Stack Developer building{" "}
                 <span className="bg-neo-yellow px-1 font-semibold neo-border inline-block">
-                  beautiful
-                </span>
-                , functional, and user-centered digital experiences.
+                  healthcare
+                </span>{" "}
+                products with AI-powered features, working across React, Python, and modern web technologies.
               </p>
             </div>
 
@@ -125,10 +125,10 @@ const HeroSection = () => {
               <h3 className="font-display text-lg mb-3">What I Do</h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Frontend", color: "bg-neo-cyan" },
-                  { label: "UI/UX", color: "bg-neo-pink" },
+                  { label: "Full-Stack", color: "bg-neo-cyan" },
+                  { label: "Healthcare", color: "bg-neo-pink" },
                   { label: "React", color: "bg-white" },
-                  { label: "TypeScript", color: "bg-neo-purple" },
+                  { label: "Python", color: "bg-neo-purple" },
                 ].map(({ label, color }) => (
                   <div
                     key={label}
@@ -142,9 +142,9 @@ const HeroSection = () => {
               {/* Stats */}
               <div className="flex gap-4 mt-6 pt-4 border-t-3 border-foreground">
                 {[
-                  { val: "2+", label: "Years Exp" },
+                  { val: "1.5+", label: "Years Exp" },
                   { val: "10+", label: "Projects" },
-                  { val: "5+", label: "Tech Stack" },
+                  { val: "10+", label: "Tech Stack" },
                 ].map((s, i) => (
                   <div
                     key={s.label}

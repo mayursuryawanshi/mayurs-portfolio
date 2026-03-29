@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Mail, Wrench, GitPullRequest, ChevronDown } from "lucide-react";
+import { Home, User, Briefcase, Mail, Wrench, GitPullRequest, ChevronDown, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
@@ -8,6 +8,7 @@ import { useActiveSection } from "@/features/portfolio/hooks/use-active-section"
 const navItems = [
   { icon: Home, label: "Home", href: "#", sectionId: "" },
   { icon: User, label: "About", href: "#about", sectionId: "about" },
+  { icon: Building2, label: "Experience", href: "#experience", sectionId: "experience" },
   { icon: Briefcase, label: "Projects", href: "#projects", sectionId: "projects" },
   { icon: Mail, label: "Contact", href: "#contact", sectionId: "contact" },
 ];

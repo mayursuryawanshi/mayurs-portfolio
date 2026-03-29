@@ -1,23 +1,26 @@
-import { Code, Palette, Zap, Coffee } from "lucide-react";
+import { Code, Brain, Zap, HeartPulse } from "lucide-react";
 import { useScrollAnimation } from "@/features/portfolio/hooks/use-scroll-animation";
 import ScrollShape from "./ScrollShape";
 
 const skills = [
   { name: "React", color: "bg-neo-cyan" },
   { name: "TypeScript", color: "bg-neo-pink" },
-  { name: "Node.js", color: "bg-neo-yellow" },
-  { name: "Tailwind CSS", color: "bg-neo-orange" },
+  { name: "Python", color: "bg-neo-yellow" },
+  { name: "Django", color: "bg-neo-orange" },
   { name: "Next.js", color: "bg-neo-purple" },
-  { name: "Figma", color: "bg-neo-pink" },
-  { name: "MongoDB", color: "bg-neo-mint" },
-  { name: "PostgreSQL", color: "bg-neo-cyan" },
+  { name: "Node.js", color: "bg-neo-mint" },
+  { name: "Tailwind CSS", color: "bg-neo-pink" },
+  { name: "MongoDB", color: "bg-neo-cyan" },
+  { name: "PostgreSQL", color: "bg-neo-yellow" },
+  { name: "Docker", color: "bg-neo-orange" },
+  { name: "AI/ML", color: "bg-neo-purple" },
 ];
 
 const traits = [
-  { icon: Code, label: "Clean Code", desc: "Maintainable & scalable", color: "bg-neo-cyan" },
-  { icon: Palette, label: "Design Eye", desc: "Pixel-perfect details", color: "bg-neo-yellow" },
-  { icon: Zap, label: "Fast Learner", desc: "Adapting to new tech", color: "bg-neo-orange" },
-  { icon: Coffee, label: "Dedicated", desc: "Committed to quality", color: "bg-neo-mint" },
+  { icon: Code, label: "Full-Stack", desc: "Frontend & Backend", color: "bg-neo-cyan" },
+  { icon: HeartPulse, label: "Healthcare", desc: "EMR & RBP products", color: "bg-neo-yellow" },
+  { icon: Brain, label: "AI/ML", desc: "Intelligent features", color: "bg-neo-orange" },
+  { icon: Zap, label: "Fast Learner", desc: "Adapting to new tech", color: "bg-neo-mint" },
 ];
 
 const AboutSection = () => {
@@ -40,7 +43,7 @@ const AboutSection = () => {
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
             Developer &<br />
-            <span className="text-primary">Designer</span>
+            <span className="text-primary">Problem Solver</span>
             <span className="text-accent">.</span>
           </h2>
         </div>
@@ -56,21 +59,21 @@ const AboutSection = () => {
               <div className="absolute inset-0 neo-card bg-neo-cyan rotate-1 translate-x-2 translate-y-2 hidden sm:block" />
               <div className="neo-card-lg bg-white p-6 md:p-8 relative z-10">
                 <p className="font-body text-lg md:text-xl leading-relaxed mb-5">
-                  I enjoy taking ideas from concept to execution and shaping
-                  experiences that genuinely help users. I prioritize{" "}
+                  I'm a full-stack developer working in the{" "}
                   <span className="bg-neo-yellow px-1 font-semibold neo-border inline-block">
-                    maintainability
+                    healthcare
                   </span>{" "}
-                  because when the foundation is clean, the product becomes
-                  easier to improve.
+                  sector, building products like EMR and RBP that directly
+                  impact patient care and clinical workflows. I work across
+                  React and Python/Django, with a growing focus on AI-powered features.
                 </p>
                 <p className="font-body text-lg md:text-xl leading-relaxed">
-                  My goal is always to build systems that feel{" "}
+                  My goal is to build systems that are{" "}
                   <span className="bg-neo-cyan px-1 font-semibold neo-border inline-block">
-                    thoughtful
+                    reliable
                   </span>{" "}
-                  and intentional — combining technical excellence with
-                  creative problem-solving.
+                  and impactful — combining clean architecture with
+                  practical solutions that make healthcare technology better.
                 </p>
               </div>
             </div>
@@ -128,9 +131,9 @@ const AboutSection = () => {
                 <h3 className="font-display text-xl mb-5">Quick Stats</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { value: "3+", label: "Years Experience", color: "bg-white" },
-                    { value: "20+", label: "Projects Built", color: "bg-neo-cyan" },
-                    { value: "15+", label: "Happy Clients", color: "bg-neo-pink" },
+                    { value: "1.5+", label: "Years Experience", color: "bg-white" },
+                    { value: "10+", label: "Projects Built", color: "bg-neo-cyan" },
+                    { value: "10+", label: "Tech Skills", color: "bg-neo-pink" },
                     { value: "∞", label: "Cups of Coffee", color: "bg-neo-orange" },
                   ].map((stat) => (
                     <div
