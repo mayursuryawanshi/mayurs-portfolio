@@ -1,6 +1,7 @@
-import { Home, User, Briefcase, Mail } from "lucide-react";
+import { Home, User, Briefcase, Mail, Wrench, GitPullRequest, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import { useActiveSection } from "@/features/portfolio/hooks/use-active-section";
 
@@ -9,6 +10,10 @@ const navItems = [
   { icon: User, label: "About", href: "#about", sectionId: "about" },
   { icon: Briefcase, label: "Projects", href: "#projects", sectionId: "projects" },
   { icon: Mail, label: "Contact", href: "#contact", sectionId: "contact" },
+];
+
+const toolItems = [
+  { icon: GitPullRequest, label: "GitHub History", href: "https://mayursuryawanshi.github.io/github-history/" },
 ];
 
 const Navigation = () => {
@@ -49,6 +54,32 @@ const Navigation = () => {
               </a>
             );
           })}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div className="group relative flex items-center">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="w-11 h-11 neo-border transition-all duration-150 bg-white hover:bg-neo-yellow neo-shadow-sm"
+                >
+                  <Wrench className="w-4 h-4" />
+                </Button>
+                <span className="absolute top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-foreground text-background font-body text-xs opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap neo-border">
+                  Tools
+                </span>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="neo-border bg-white neo-shadow-sm" sideOffset={12}>
+              {toolItems.map((tool) => (
+                <DropdownMenuItem key={tool.label} asChild>
+                  <a href={tool.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+                    <tool.icon className="w-4 h-4" />
+                    <span className="font-body text-sm">{tool.label}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
@@ -73,6 +104,19 @@ const Navigation = () => {
                 </a>
               );
             })}
+            <div className="mt-2 mb-1 px-1 font-display text-sm text-muted-foreground flex items-center gap-2">
+              <Wrench className="w-4 h-4" />
+              Tools
+            </div>
+            {toolItems.map((tool) => (
+              <a key={tool.label} href={tool.href} target="_blank" rel="noopener noreferrer"
+                className="neo-card-static p-4 flex items-center gap-4 transition-all bg-white">
+                <div className="w-11 h-11 neo-border flex items-center justify-center neo-shadow-sm bg-white">
+                  <tool.icon className="w-5 h-5" />
+                </div>
+                <span className="font-display text-lg">{tool.label}</span>
+              </a>
+            ))}
           </div>
         </SheetContent>
       </Sheet>

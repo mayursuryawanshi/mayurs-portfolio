@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "@/features/portfolio/components/ErrorBoundary";
+import ExternalRedirect from "@/components/ExternalRedirect";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/github-history" element={<ExternalRedirect to="https://mayursuryawanshi.github.io/github-history/" />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
