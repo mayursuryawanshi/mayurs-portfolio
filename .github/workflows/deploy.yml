@@ -63,7 +63,7 @@ jobs:
       run: yarn build
       env:
         NODE_ENV: production
-        VITE_BASE_URL: ${{ github.event.repository.name == format('{0}.github.io', github.event.repository.owner.login) && '/' || format('/{0}/', github.event.repository.name) }}
+        VITE_BASE_URL: /
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
