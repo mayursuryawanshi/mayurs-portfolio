@@ -29,7 +29,7 @@ const Footer = () => {
               MAYUR<span className="text-primary">.</span>
             </div>
             <div className="font-body flex items-center gap-2 text-sm text-muted-foreground">
-              Made with <Heart className="w-4 h-4 text-neo-pink fill-neo-pink animate-pulse-scale" /> and lots of coffee1234
+              Made with <Heart className="w-4 h-4 text-neo-pink fill-neo-pink animate-pulse-scale" /> and lots of coffee
             </div>
             <div className="flex items-center gap-3">
               <span className="font-body text-xs text-muted-foreground">© {new Date().getFullYear()}</span>
