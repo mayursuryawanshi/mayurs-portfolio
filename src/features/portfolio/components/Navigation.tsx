@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Mail, Wrench, GitPullRequest, ChevronDown, Building2 } from "lucide-react";
+import { Home, User, Briefcase, Mail, Wrench, GitPullRequest, Sparkles, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
@@ -15,6 +15,7 @@ const navItems = [
 
 const toolItems = [
   { icon: GitPullRequest, label: "GitHub History", href: "https://mayursuryawanshi.github.io/github-history/" },
+  { icon: Sparkles, label: "Horoscope", href: "https://mayursuryawanshi.github.io/horoscope/" },
 ];
 
 const Navigation = () => {

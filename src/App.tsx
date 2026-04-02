@@ -28,6 +28,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/github-history" element={<ExternalRedirect to="https://mayursuryawanshi.github.io/github-history/" />} />
+              <Route path="/horoscope" element={<ExternalRedirect to="https://mayursuryawanshi.github.io/horoscope/" />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
