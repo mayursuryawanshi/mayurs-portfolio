@@ -5,49 +5,49 @@ import ScrollShape from "./ScrollShape";
 
 const projects = [
   {
-    title: "Project One",
+    title: "commit-sage",
     description:
-      "A modern web application built with React and Node.js. Features real-time updates and beautiful UI.",
-    tags: ["React", "Node.js", "MongoDB"],
+      "An AI-powered CLI tool that reviews your staged Git changes before you commit. Catches bugs, security issues, and performance problems using Gemini, OpenAI, or Anthropic — works as a pre-commit hook with zero platform setup.",
+    tags: ["TypeScript", "Node.js", "CLI", "AI"],
     color: "bg-neo-cyan",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://www.npmjs.com/package/commit-sage",
+    githubUrl: "https://github.com/mayursuryawanshi/commit-sage",
   },
   {
-    title: "Project Two",
+    title: "GitHub PR History",
     description:
-      "E-commerce platform with seamless checkout experience and inventory management system.",
-    tags: ["Next.js", "Stripe", "PostgreSQL"],
+      "A developer productivity tool to fetch and view your GitHub pull request history. Filter PRs by status, date range, and repository with summary generation for performance reviews.",
+    tags: ["JavaScript", "GitHub API", "CSS"],
     color: "bg-neo-orange",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&q=80",
+    liveUrl: "https://mayursuryawanshi.github.io/github-history/",
+    githubUrl: "https://github.com/mayursuryawanshi/github-history",
   },
   {
-    title: "Project Three",
+    title: "Horoscope",
     description:
-      "Mobile-first dashboard for analytics and data visualization with interactive charts.",
-    tags: ["TypeScript", "D3.js", "Tailwind"],
+      "A daily horoscope web app that delivers zodiac sign readings. Select your sign to get personalized astrological insights, built with vanilla JavaScript and deployed on GitHub Pages.",
+    tags: ["JavaScript", "CSS", "HTML"],
     color: "bg-neo-yellow",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=600&q=80",
+    liveUrl: "https://mayursuryawanshi.github.io/horoscope/",
+    githubUrl: "https://github.com/mayursuryawanshi/horoscope",
   },
   {
-    title: "Project Four",
+    title: "Portfolio Website",
     description:
-      "AI-powered content management system with automated workflows and smart suggestions.",
-    tags: ["Python", "React", "OpenAI"],
+      "A neobrutalist-inspired personal portfolio featuring dark/light theme toggle, smooth scroll animations, responsive design, and a contact form with validation.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     color: "bg-neo-mint",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80",
+    liveUrl: "https://mayursuryawanshi.in",
+    githubUrl: "https://github.com/mayursuryawanshi/mayurs-portfolio",
   },
 ];
 
 interface ProjectCardProps {
-  project: (typeof projects)[0];
+  project: (typeof projects)[number];
   index: number;
   reverse?: boolean;
 }
@@ -94,13 +94,15 @@ const ProjectCard = ({ project, index, reverse }: ProjectCardProps) => {
             ))}
           </div>
           <div className="flex gap-3">
-            <Button asChild className="neo-button bg-primary text-primary-foreground font-body h-auto py-2.5 px-5 text-sm group">
-              <a href={project.liveUrl} className="flex items-center gap-2">
-                Live Demo <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </Button>
+            {"liveUrl" in project && project.liveUrl && (
+              <Button asChild className="neo-button bg-primary text-primary-foreground font-body h-auto py-2.5 px-5 text-sm group">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  Live Demo <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </Button>
+            )}
             <Button asChild variant="secondary" className="neo-button bg-white text-foreground font-body h-auto py-2.5 px-5 text-sm">
-              <a href={project.githubUrl} className="flex items-center gap-2">
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 Code <Github className="w-4 h-4" />
               </a>
             </Button>
